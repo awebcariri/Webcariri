@@ -1,0 +1,9 @@
+# Arquivos de trabalho: não fazem parte do site e não precisam ficar públicos
+build.py
+servir.py
+verificar_deploy.py
+README.md
+__pycache__
+*.zip
+.claude
+graphify-out
