@@ -132,14 +132,6 @@ def head(slug, titulo, desc):
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{aba}</title>
-<meta name="description" content="{desc}">
-{canon}<meta name="robots" content="{'noindex' if slug == '404' else 'index, follow, max-image-preview:large'}">
-<meta name="theme-color" content="#F3EFE7">
-<meta name="format-detection" content="telephone=no, address=no, email=no">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="WebCariri">
-<meta property="og:locale" content="pt_BR">
-<meta property="og:url" content="{url}">
 <meta property="og:title" content="{titulo}">
 <meta property="og:description" content="{desc}">
 <meta property="og:image" content="{SITE}/og.jpg">
@@ -147,13 +139,25 @@ def head(slug, titulo, desc):
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="WebCariri, estúdio de criação de sites em Juazeiro do Norte">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebCariri">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="{url}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{titulo}">
 <meta name="twitter:description" content="{desc}">
 <meta name="twitter:image" content="{SITE}/og.jpg">
+<meta itemprop="name" content="{titulo}">
+<meta itemprop="description" content="{desc}">
+<meta itemprop="image" content="{SITE}/og.jpg">
+<meta name="description" content="{desc}">
+{canon}<meta name="robots" content="{'noindex' if slug == '404' else 'index, follow, max-image-preview:large'}">
+<meta name="theme-color" content="#F3EFE7">
+<meta name="format-detection" content="telephone=no, address=no, email=no">
 <link rel="icon" href="favicon.ico" sizes="32x32">
 <link rel="icon" href="icone.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
 <link rel="preload" href="bigshoulders-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="instrument-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="dmmono-400.woff2" as="font" type="font/woff2" crossorigin>
