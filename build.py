@@ -13,6 +13,7 @@ def versao(arq):
 SITE = 'https://www.webcariri.com.br'
 ZAP = '5588999761315'
 ZAP_TXT = '(88) 99976-1315'
+MAPS = 'https://maps.google.com/maps?cid=755831847868329975'  # Perfil da Empresa no Google
 ANO = '2026'
 MSG = 'Olá, WebCariri! Quero conversar sobre um site para o meu negócio.'
 MSG_PREVIA = 'Olá, WebCariri! Quero uma prévia do site do meu negócio.'
@@ -100,14 +101,17 @@ def ld_estudio():
     ofertas = [{"@type": "Offer", "name": n, "description": d, "url": SITE + "/planos",
                 "priceSpecification": {"@type": "PriceSpecification", "minPrice": float(v.replace('.', '')), "priceCurrency": "BRL"}} for n, v, d, _i in PLANOS]
     return [
-        {"@type": "WebSite", "@id": SITE + "/#site", "url": SITE + "/", "name": "WebCariri", "alternateName": "WC", "inLanguage": "pt-BR", "publisher": {"@id": SITE + "/#estudio"}},
+        {"@type": "WebSite", "@id": SITE + "/#site", "url": SITE + "/", "name": "WebCariri", "alternateName": ["Web Cariri", "Webcariri", "WC"], "inLanguage": "pt-BR", "publisher": {"@id": SITE + "/#estudio"}},
         {"@type": "ProfessionalService", "@id": SITE + "/#estudio", "name": "WebCariri",
-         "description": "Estúdio de criação de sites em Juazeiro do Norte, Ceará.",
+         "alternateName": ["Web Cariri", "Webcariri"],
+         "description": "Estúdio de criação de sites, landing pages e sites premium em Juazeiro do Norte, Ceará. Atende o Cariri e todo o Brasil, 100% online.",
          "url": SITE + "/", "image": SITE + "/og.jpg", "logo": SITE + "/apple-touch-icon.png", "telephone": "+55 88 99976-1315",
          "address": {"@type": "PostalAddress", "addressLocality": "Juazeiro do Norte", "addressRegion": "CE", "addressCountry": "BR"},
          "geo": {"@type": "GeoCoordinates", "latitude": -7.2131, "longitude": -39.3151},
          "areaServed": ["Juazeiro do Norte", "Crato", "Barbalha", "Cariri", "Brasil"],
-         "sameAs": ["https://www.instagram.com/awebcariri/"], "priceRange": "R$ 497 a R$ 1.497",
+         "sameAs": ["https://www.instagram.com/awebcariri/", MAPS], "hasMap": MAPS,
+         "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "08:00", "closes": "18:00"}],
+         "knowsAbout": ["Criação de sites", "Landing page", "Web design", "SEO local"], "priceRange": "R$ 497 a R$ 1.497",
          "contactPoint": {"@type": "ContactPoint", "contactType": "customer service", "telephone": "+55 88 99976-1315", "availableLanguage": "Portuguese", "url": f"https://wa.me/{ZAP}"},
          "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Planos de criação de sites", "itemListElement": ofertas}},
         {"@type": "FAQPage", "@id": SITE + "/#duvidas", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]},
