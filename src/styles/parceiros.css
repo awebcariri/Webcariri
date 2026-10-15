@@ -1,0 +1,497 @@
+/* ============================================================
+   PARA AGÊNCIAS (/parceiros)
+   ============================================================ */
+.age-linha {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.age-linha::after {
+  content: '';
+  flex: 1 1 40px;
+  max-width: 220px;
+  height: 1px;
+  background: var(--linha);
+}
+.age-linha--clara::after {
+  background: rgba(243, 239, 229, 0.4);
+}
+
+.age-topo {
+  display: grid;
+  gap: 18px;
+  padding-bottom: 26px;
+  border-bottom: 1px solid var(--linha);
+}
+.age-topo__titulo {
+  margin: 12px 0 14px;
+  line-height: 0.9;
+}
+.age-topo__titulo .acento {
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+.age-topo__sub {
+  font-size: clamp(1.2rem, 1.5vw, 1.4rem);
+  color: var(--preto);
+  margin-bottom: 6px;
+}
+.age-topo__texto-apoio {
+  font-size: 0.92rem;
+  max-width: 34em;
+}
+.age-topo__btn {
+  margin-top: 18px;
+  min-height: 48px;
+  font-size: 0.98rem;
+}
+
+.age-topo__arte {
+  position: relative;
+  aspect-ratio: 1.15 / 1;
+  max-width: 520px;
+  width: 100%;
+}
+.age-topo__mancha {
+  position: absolute;
+  inset: 6% 0 0 4%;
+  background: var(--amarelo);
+  border-radius: 38% 52% 30% 44% / 42% 36% 48% 40%;
+}
+.age-janela {
+  position: absolute;
+  left: 8%;
+  top: 26%;
+  width: 56%;
+  aspect-ratio: 1.45 / 1;
+  background: #fffaf0;
+  border: 3px solid var(--vinho);
+  border-radius: 12px;
+  padding: 16% 8% 6%;
+  transform: rotate(-4deg);
+  box-shadow: 6px 8px 0 rgba(101, 27, 38, 0.12);
+}
+.age-janela::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 11%;
+  height: 3px;
+  background: var(--vinho);
+}
+.age-janela__pontos {
+  position: absolute;
+  top: 3.5%;
+  left: 5%;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--tomate);
+  box-shadow: 14px 0 0 var(--vinho), 28px 0 0 var(--vinho);
+}
+.age-janela p {
+  font-family: var(--f-titulo);
+  font-weight: 800;
+  font-size: clamp(0.85rem, 2vw, 1.75rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  color: var(--vinho);
+}
+.age-janela__linha {
+  display: block;
+  height: 6px;
+  width: 52%;
+  border-radius: 6px;
+  background: rgba(101, 27, 38, 0.15);
+  margin-top: 8%;
+}
+.age-janela__linha--curta {
+  width: 36%;
+  margin-top: 4%;
+}
+.age-janela__botao {
+  position: absolute;
+  left: 8%;
+  bottom: 8%;
+  display: grid;
+  place-items: center;
+  width: clamp(24px, 3.4vw, 40px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--tomate);
+  color: #fff;
+}
+.age-topo__balao {
+  position: absolute;
+  right: 0;
+  top: 4%;
+  font-size: clamp(0.85rem, 1.9vw, 1.6rem);
+  transform: rotate(-10deg);
+  line-height: 1;
+}
+.age-topo__faiscas {
+  width: 34px;
+}
+.age-topo__faiscas--1 {
+  right: 0;
+  top: 34%;
+  transform: rotate(60deg);
+}
+.age-topo__faiscas--2 {
+  left: 40%;
+  top: 22%;
+  transform: rotate(-50deg);
+  width: 26px;
+}
+.age-topo__cari {
+  position: absolute;
+  right: -6%;
+  bottom: 0;
+  width: 72%;
+}
+
+.age-secao {
+  padding-block: 20px;
+}
+.age-secao__cabeca {
+  margin-bottom: 14px;
+}
+.age-secao__apoio {
+  display: none;
+}
+
+.age-servicos {
+  display: grid;
+  gap: 14px;
+}
+.age-servico {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 14px;
+  align-items: start;
+  color: var(--vinho);
+}
+.age-servico svg {
+  width: 34px;
+  height: 34px;
+}
+.age-servico h3,
+.age-passo h3 {
+  font-family: var(--f-titulo);
+  font-weight: 800;
+  color: var(--vinho);
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.age-servico p,
+.age-passo p {
+  font-size: 0.86rem;
+  color: var(--texto-suave);
+  margin-top: 2px;
+}
+
+.age-passos {
+  display: grid;
+  gap: 16px;
+}
+.age-passo {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: start;
+}
+.age-passo__topo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--vinho);
+}
+.age-passo__topo .selo-num {
+  font-size: 0.8rem;
+}
+.age-passo__topo svg {
+  width: 30px;
+  height: 30px;
+}
+
+.age-papeis {
+  display: grid;
+  gap: 12px;
+}
+.age-papel {
+  border-radius: 14px;
+  padding: 18px 16px;
+}
+.age-papel--agencia {
+  background: var(--areia);
+}
+.age-papel--webcariri {
+  background: var(--amarelo);
+}
+.age-papel .titulo {
+  font-size: clamp(1.5rem, 3.2vw, 2.6rem);
+  letter-spacing: -0.04em;
+  margin-bottom: 10px;
+  color: var(--vinho-escuro);
+}
+.age-papel ul {
+  display: grid;
+  gap: 12px;
+}
+.age-papel li {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 12px;
+  align-items: start;
+  color: var(--vinho);
+}
+.age-papel li svg {
+  width: 28px;
+  height: 28px;
+}
+.age-papel strong {
+  display: block;
+  font-family: var(--f-titulo);
+  font-weight: 700;
+  color: var(--vinho);
+  font-size: 0.95rem;
+}
+.age-papel span {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--texto);
+  line-height: 1.35;
+}
+
+.age-convite {
+  position: relative;
+  margin-top: 16px;
+  background: var(--vinho);
+  color: var(--creme);
+  border-radius: 14px;
+  padding: 22px 18px 24px;
+  display: grid;
+  gap: 16px;
+  overflow: hidden;
+}
+.age-convite .rotulo {
+  color: rgba(243, 239, 229, 0.85);
+  display: none;
+}
+.age-convite .titulo {
+  color: #fffaf0;
+  font-size: clamp(1.7rem, 3.8vw, 3.4rem);
+  letter-spacing: -0.05em;
+}
+.age-convite .titulo .acento {
+  color: var(--tomate);
+}
+.age-convite__texto > p:last-child {
+  margin-top: 10px;
+  font-size: 0.86rem;
+  max-width: 62%;
+  color: rgba(243, 239, 229, 0.9);
+}
+.age-convite__btn {
+  justify-self: stretch;
+  position: relative;
+  z-index: 1;
+}
+.age-convite__arte {
+  position: absolute;
+  right: -10px;
+  top: 6px;
+  width: 38%;
+  max-width: 300px;
+}
+.age-convite__cari {
+  width: 100%;
+}
+.age-convite__sticker {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .age-topo {
+    position: relative;
+    display: block;
+    padding-bottom: 44px;
+    min-height: clamp(560px, 52vw, 760px);
+  }
+  .age-topo__texto {
+    position: relative;
+    z-index: 1;
+  }
+  .age-topo__sub,
+  .age-topo__texto-apoio {
+    max-width: 50%;
+  }
+  .age-topo__sub {
+    font-size: clamp(1.2rem, 1.95vw, 1.8rem);
+  }
+  .age-topo__texto-apoio {
+    font-size: clamp(1rem, 1.4vw, 1.25rem);
+  }
+  .age-topo__btn {
+    min-height: 60px;
+    font-size: clamp(1.05rem, 1.4vw, 1.22rem);
+    padding: 0 2em;
+  }
+  .age-topo__arte {
+    position: absolute;
+    right: -1%;
+    top: 16%;
+    width: 46%;
+    max-width: none;
+  }
+
+  .age-secao {
+    padding-block: 30px 10px;
+  }
+  .age-secao__cabeca {
+    margin-bottom: 28px;
+  }
+  .age-secao__apoio {
+    display: block;
+    font-size: 0.78rem;
+  }
+  .age-secao__cabeca .rotulo {
+    font-size: 0.86rem;
+  }
+  .age-servicos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+  }
+  .age-servico {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 0 clamp(20px, 3vw, 44px);
+  }
+  .age-servico:first-child {
+    padding-left: 0;
+  }
+  .age-servico + .age-servico {
+    border-left: 1px solid var(--linha);
+  }
+  .age-servico svg {
+    width: clamp(64px, 6vw, 86px);
+    height: clamp(64px, 6vw, 86px);
+  }
+  .age-servico h3 {
+    font-size: clamp(1.5rem, 3.3vw, 3rem);
+    letter-spacing: -0.04em;
+    line-height: 0.98;
+  }
+  .age-servico p,
+  .age-passo p {
+    font-size: clamp(1rem, 1.45vw, 1.3rem);
+    margin-top: 10px;
+    max-width: 18em;
+  }
+
+  .age-passos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+  }
+  .age-passo {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 0 clamp(20px, 3vw, 44px);
+  }
+  .age-passo:first-child {
+    padding-left: 0;
+  }
+  .age-passo + .age-passo {
+    border-left: 1px solid var(--linha);
+  }
+  .age-passo__topo {
+    gap: 18px;
+  }
+  .age-passo__topo .selo-num {
+    font-size: 1.2rem;
+  }
+  .age-passo__topo svg {
+    width: clamp(46px, 4.6vw, 66px);
+    height: clamp(46px, 4.6vw, 66px);
+  }
+  .age-passo h3 {
+    font-size: clamp(1.3rem, 2.3vw, 2.1rem);
+    letter-spacing: -0.035em;
+  }
+
+  .age-papeis {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .age-papel {
+    padding: 26px clamp(20px, 2.4vw, 32px) 30px;
+  }
+  .age-papel ul {
+    gap: 20px;
+  }
+  .age-papel li {
+    grid-template-columns: 56px 1fr;
+    gap: 18px;
+    padding-left: 12px;
+  }
+  .age-papel li svg {
+    width: 40px;
+    height: 40px;
+  }
+  .age-papel strong {
+    font-size: clamp(1.1rem, 1.55vw, 1.4rem);
+  }
+  .age-papel span {
+    font-size: clamp(0.98rem, 1.3vw, 1.18rem);
+  }
+  .age-papel .titulo {
+    font-size: clamp(2rem, 4vw, 3.6rem);
+  }
+  .age-papel li svg {
+    width: 48px;
+    height: 48px;
+  }
+
+  .age-convite {
+    grid-template-columns: auto auto 1fr;
+    align-items: end;
+    gap: 30px;
+    padding: 28px clamp(24px, 3vw, 40px) 30px;
+    min-height: 220px;
+  }
+  .age-convite .rotulo {
+    display: flex;
+    margin-bottom: 14px;
+  }
+  .age-convite__texto > p:last-child {
+    max-width: 24em;
+    font-size: clamp(1rem, 1.3vw, 1.18rem);
+  }
+  .age-convite .titulo {
+    font-size: clamp(2.4rem, 4.8vw, 4.4rem);
+  }
+  .age-convite__btn {
+    justify-self: start;
+    margin-bottom: 6px;
+  }
+  .age-convite__arte {
+    right: 3%;
+    top: auto;
+    bottom: -30px;
+    width: 32%;
+    max-width: 360px;
+  }
+  .age-convite__cari {
+    width: 74%;
+  }
+  .age-convite__sticker {
+    display: block;
+    position: absolute;
+    right: -4%;
+    top: 2%;
+    width: 50%;
+    transform: rotate(-4deg);
+  }
+}

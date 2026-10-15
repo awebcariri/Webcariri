@@ -1,0 +1,627 @@
+/* ============================================================
+   PROCESSO (/como-funciona)
+   ============================================================ */
+
+.pro-topo {
+  display: grid;
+  grid-template-columns: 1fr 42%;
+  gap: 0 8px;
+  border-bottom: 1px solid var(--linha);
+}
+.pro-topo__titulo {
+  margin: 10px 0 12px;
+}
+.pro-topo__titulo .acento {
+  display: inline-block;
+  max-width: 6.2em;
+}
+.pro-topo__texto {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  position: relative;
+  z-index: 1;
+  padding-bottom: 20px;
+}
+.pro-topo__texto .lead {
+  max-width: 8.6em;
+}
+.pro-topo__btn {
+  margin-top: 16px;
+  min-height: 46px;
+  font-size: 0.95rem;
+  padding: 0 1.3em;
+}
+.pro-topo__arte {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  position: relative;
+  height: 190px;
+  margin: -70px -20px 0 0;
+}
+.pro-topo__balao {
+  position: absolute;
+  right: 8px;
+  top: -190px;
+  font-size: 0.58rem;
+  transform: rotate(10deg);
+}
+.pro-topo__cari {
+  position: absolute;
+  right: -4%;
+  bottom: 0;
+  width: 62%;
+  max-width: 300px !important;
+}
+.pro-topo__faiscas {
+  width: 30px;
+}
+.pro-topo__faiscas--1 {
+  left: -18%;
+  bottom: 34%;
+  transform: rotate(-120deg);
+}
+.pro-topo__faiscas--2 {
+  display: none;
+}
+
+.pro-etapas {
+  padding-block: 22px;
+}
+.pro-etapas__lista {
+  display: grid;
+}
+.pro-etapa {
+  position: relative;
+  display: grid;
+}
+.pro-etapa__link {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: start;
+  padding: 6px 0;
+  border-radius: 12px;
+}
+.pro-etapa__topo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--vinho);
+}
+.pro-etapa__topo svg {
+  width: 40px;
+  height: 40px;
+}
+.pro-etapa__num {
+  font-family: var(--f-titulo);
+  font-stretch: 75%;
+  font-weight: 800;
+  font-size: 2.8rem;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--vinho);
+  min-width: 1.4em;
+}
+.pro-etapa__texto {
+  display: grid;
+  gap: 2px;
+  padding-top: 4px;
+}
+.pro-etapa__texto strong {
+  font-family: var(--f-titulo);
+  font-stretch: 85%;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--vinho);
+  font-size: 0.92rem;
+}
+.pro-etapa__texto span {
+  font-size: 0.88rem;
+  line-height: 1.4;
+  color: var(--texto-suave);
+}
+.pro-etapa__seta {
+  justify-self: center;
+  transform: rotate(90deg);
+  color: var(--tomate);
+  margin: 4px 0;
+}
+.pro-etapa__link:hover strong {
+  color: var(--tomate-texto);
+}
+
+.pro-detalhes {
+  display: none;
+}
+.pro-detalhes-mobile {
+  margin-bottom: 22px;
+  border-top: 1px solid var(--linha-suave);
+}
+.pro-detalhes-mobile .acordeao__botao {
+  font-weight: 600;
+}
+.pro-detalhes-mobile__zap {
+  margin: -6px 0 14px;
+}
+
+/* ilustrações das etapas (montadas com o kit, não são fotos) */
+.pro-ilus {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  aspect-ratio: 1.8 / 1;
+  background: var(--areia);
+}
+.pro-ilus .sticker {
+  position: absolute;
+  height: auto;
+}
+.pro-ilus--conversa {
+  background: #e9dcc5;
+}
+.pro-ilus--conversa .pro-ilus__a {
+  width: 44%;
+  left: 5%;
+  bottom: 10%;
+  transform: rotate(-5deg);
+}
+.pro-ilus--conversa .pro-ilus__b {
+  width: 32%;
+  left: 38%;
+  top: 6%;
+  transform: rotate(6deg);
+}
+.pro-ilus--conversa .pro-ilus__c {
+  width: 38%;
+  right: 4%;
+  bottom: 10%;
+  transform: rotate(-4deg);
+}
+.pro-ilus--previa {
+  background: #ece5d7;
+  display: grid;
+  place-items: center;
+  padding: 6% 7% 0;
+}
+.pro-mock {
+  width: 100%;
+  height: 100%;
+  background: var(--creme);
+  border-radius: 10px 10px 0 0;
+  box-shadow: var(--sombra);
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+.pro-mock__barra {
+  display: flex;
+  align-items: center;
+  gap: 4%;
+  padding: 3% 5%;
+  font-size: clamp(0.45rem, 0.7vw, 0.62rem);
+  color: var(--texto);
+}
+.pro-mock__barra img {
+  width: 20%;
+  height: auto;
+  margin-right: auto;
+}
+.pro-mock__barra b {
+  background: var(--tomate);
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.5em 1em;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.pro-mock__corpo {
+  position: relative;
+  padding: 3% 5%;
+}
+.pro-mock__titulo {
+  font-family: var(--f-titulo);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 0.92;
+  color: var(--preto);
+  font-size: clamp(1.1rem, 2.4vw, 2.2rem);
+  position: relative;
+  z-index: 1;
+}
+.pro-mock__titulo span {
+  font-family: var(--f-acento);
+  font-style: italic;
+  color: var(--tomate);
+}
+.pro-mock__sol {
+  position: absolute;
+  right: 4%;
+  bottom: 0;
+  width: 46%;
+  height: auto;
+}
+.pro-ilus--criacao {
+  background: var(--vinho);
+}
+.pro-ilus--criacao .pro-ilus__a {
+  width: 36%;
+  left: 7%;
+  top: 10%;
+  transform: rotate(-6deg);
+}
+.pro-ilus--criacao .pro-ilus__b {
+  width: 28%;
+  left: 36%;
+  bottom: 6%;
+  transform: rotate(4deg);
+}
+.pro-ilus__balao {
+  position: absolute;
+  right: 7%;
+  top: 18%;
+  font-size: clamp(0.6rem, 1vw, 0.88rem);
+  transform: rotate(-10deg);
+}
+.pro-ilus--noar {
+  background: linear-gradient(180deg, #f3d98a 0%, #ecae6c 100%);
+}
+.pro-ilus--noar .pro-ilus__a {
+  width: 50%;
+  left: 5%;
+  bottom: 0;
+}
+.pro-ilus--noar .pro-ilus__b {
+  width: 26%;
+  left: 50%;
+  top: 8%;
+  transform: rotate(-6deg);
+}
+.pro-ilus--noar .pro-ilus__c {
+  width: 38%;
+  right: 3%;
+  bottom: 10%;
+  transform: rotate(-8deg);
+}
+
+/* materiais */
+.pro-materiais {
+  padding-bottom: 0;
+}
+.pro-materiais__texto .titulo {
+  margin: 8px 0;
+  font-size: clamp(1.45rem, 2.4vw, 2.25rem);
+  letter-spacing: -0.035em;
+}
+.pro-materiais__texto > p:not(.rotulo) {
+  font-size: 0.95rem;
+}
+.pro-materiais__lista {
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
+}
+.pro-materiais__lista li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 46px;
+  padding: 0 14px;
+  background: rgba(255, 250, 240, 0.72);
+  border-radius: 10px;
+  color: var(--texto);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+.pro-materiais__lista svg {
+  color: var(--vinho);
+}
+.pro-materiais__arte {
+  position: relative;
+  min-height: 300px;
+  margin-inline: -20px;
+}
+.pro-materiais__cari {
+  position: absolute;
+  left: -4%;
+  bottom: -22%;
+  width: 84%;
+}
+.pro-materiais__balao {
+  position: absolute;
+  right: 4%;
+  top: 4%;
+  font-size: 0.95rem;
+  transform: rotate(-6deg);
+  z-index: 1;
+}
+.pro-materiais__faiscas {
+  width: 36px;
+  right: 16%;
+  top: 58%;
+  transform: rotate(140deg);
+}
+
+.pro-duvidas {
+  margin-top: 28px;
+}
+.pro-duvidas .titulo {
+  font-size: clamp(1.5rem, 3.9vw, 3.5rem);
+  margin-bottom: 12px;
+}
+.pro-duvidas__lista .acordeao {
+  border: 1px solid var(--linha-suave);
+  border-radius: 10px;
+  margin-bottom: 8px;
+  padding-left: 12px;
+  background: var(--papel);
+}
+.pro-duvidas__lista .acordeao__botao {
+  font-size: 0.94rem;
+  color: var(--preto);
+}
+
+.pro-convite {
+  margin-top: 26px;
+  background: #ece2d2;
+  border-radius: 16px;
+  padding: 24px 20px;
+  display: grid;
+  gap: 10px;
+  position: relative;
+}
+.pro-convite__rotulo {
+  color: var(--tomate-texto);
+  margin-bottom: 8px;
+}
+.pro-convite .titulo {
+  font-size: clamp(1.9rem, 4vw, 3.5rem);
+}
+.pro-convite__texto {
+  color: var(--texto-suave);
+  font-size: clamp(1rem, 1.35vw, 1.2rem);
+}
+.pro-convite__faiscas {
+  display: none;
+}
+.pro-convite__btn {
+  margin-top: 8px;
+}
+
+@media (min-width: 768px) {
+  .pro-topo {
+    grid-template-columns: 1.15fr 1fr;
+    align-items: end;
+  }
+  .pro-topo__texto {
+    grid-column: 1;
+    padding-bottom: 30px;
+  }
+  .pro-topo__titulo .acento {
+    max-width: none;
+    white-space: nowrap;
+  }
+  .pro-topo__texto .lead {
+    max-width: none;
+  }
+  .pro-topo__btn {
+    min-height: 58px;
+    font-size: 1.15rem;
+    padding: 0 1.8em;
+  }
+  .pro-topo__texto .lead {
+    font-size: clamp(1.2rem, 1.9vw, 1.75rem);
+  }
+  .pro-topo__arte {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: stretch;
+    height: auto;
+    min-height: clamp(300px, 30vw, 420px);
+    margin: 0;
+  }
+  .pro-topo__cari {
+    width: 108%;
+    right: -6%;
+    max-width: 640px !important;
+  }
+  .pro-topo__balao {
+    font-size: clamp(0.75rem, 1.1vw, 1rem);
+    top: 0;
+    right: 2%;
+    transform: rotate(-8deg);
+  }
+  .pro-topo__faiscas {
+    width: 44px;
+  }
+  .pro-topo__faiscas--1 {
+    left: 22%;
+    top: 0;
+    bottom: auto;
+    transform: rotate(-30deg);
+  }
+  .pro-topo__faiscas--2 {
+    display: block;
+    right: -3%;
+    bottom: 42%;
+    transform: rotate(80deg);
+  }
+
+  .pro-etapas {
+    padding-block: 28px;
+    border-bottom: 1px solid var(--linha);
+  }
+  .pro-etapas__lista {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .pro-etapa {
+    padding-inline: clamp(12px, 1.6vw, 24px);
+  }
+  .pro-etapa:first-child {
+    padding-left: 0;
+  }
+  .pro-etapa + .pro-etapa {
+    border-left: 1px solid var(--linha-suave);
+  }
+  .pro-etapa__link {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .pro-etapa__topo {
+    gap: 18px;
+  }
+  .pro-etapa__topo svg {
+    width: clamp(44px, 4.4vw, 64px);
+    height: clamp(44px, 4.4vw, 64px);
+  }
+  .pro-etapa__num {
+    font-size: clamp(2.6rem, 4.6vw, 4.2rem);
+    min-width: 0;
+  }
+  .pro-etapa__texto strong {
+    font-size: clamp(1.05rem, 1.7vw, 1.55rem);
+  }
+  .pro-etapa__texto span {
+    font-size: clamp(0.95rem, 1.25vw, 1.15rem);
+  }
+  .pro-etapa__seta {
+    position: absolute;
+    right: -11px;
+    top: 26px;
+    transform: none;
+    margin: 0;
+    background: var(--creme);
+  }
+
+  .pro-detalhes {
+    display: grid;
+  }
+  .pro-detalhes-mobile {
+    display: none;
+  }
+  .pro-detalhe {
+    display: grid;
+    grid-template-columns: 0.82fr 1fr;
+    gap: clamp(28px, 4vw, 56px);
+    align-items: center;
+    padding-block: 22px;
+    border-bottom: 1px solid var(--linha);
+    scroll-margin-top: calc(var(--header-h) + 16px);
+  }
+  .pro-detalhe--inverso {
+    grid-template-columns: 1fr 0.82fr;
+  }
+  .pro-detalhe--inverso .pro-detalhe__texto {
+    order: 2;
+    padding-left: clamp(18px, 2vw, 30px);
+    border-left: 1px solid var(--linha-suave);
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .pro-detalhe__texto .titulo {
+    margin: 12px 0 14px;
+    font-size: clamp(2rem, 4.2vw, 3.8rem);
+  }
+  .pro-detalhe__texto .texto {
+    max-width: 28em;
+    font-size: clamp(1rem, 1.45vw, 1.3rem);
+  }
+  .pro-detalhe__texto .btn {
+    min-height: 54px;
+    font-size: 1.1rem;
+  }
+  .pro-detalhe__texto .btn {
+    margin-top: 20px;
+  }
+
+  .pro-materiais {
+    grid-template-columns: 1fr 34%;
+    margin-top: 24px;
+    gap: 0;
+  }
+  .pro-materiais__texto {
+    padding-bottom: clamp(24px, 3vw, 36px);
+  }
+  .pro-materiais__lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .pro-materiais__lista li {
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    min-width: clamp(110px, 10vw, 150px);
+    min-height: clamp(84px, 7.5vw, 110px);
+    padding: 12px 18px;
+    font-size: clamp(0.92rem, 1.2vw, 1.1rem);
+  }
+  .pro-materiais__lista svg {
+    width: 36px;
+    height: 36px;
+  }
+  .pro-materiais__texto .titulo {
+    font-size: clamp(1.8rem, 3.4vw, 3.1rem);
+  }
+  .pro-materiais__texto > p:not(.rotulo) {
+    font-size: clamp(1rem, 1.4vw, 1.25rem);
+  }
+  .pro-materiais__arte {
+    margin: 0;
+  }
+  .pro-materiais__cari {
+    left: 0;
+    bottom: -22%;
+    width: 86%;
+  }
+  .pro-materiais__balao {
+    top: 10%;
+    right: 0;
+    font-size: clamp(0.8rem, 1.1vw, 1rem);
+  }
+
+  .pro-duvidas {
+    display: grid;
+    grid-template-columns: 0.55fr 1fr;
+    gap: 40px;
+    margin-top: 34px;
+  }
+  .pro-duvidas__lista {
+    border-left: 1px solid var(--linha-suave);
+    padding-left: clamp(18px, 2vw, 28px);
+  }
+  .pro-duvidas__lista .acordeao {
+    border: 0;
+    border-bottom: 1px solid var(--linha-suave);
+    border-radius: 0;
+    background: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .pro-convite {
+    margin-top: 30px;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+    gap: 40px;
+    padding: 22px clamp(24px, 3vw, 40px);
+  }
+  .pro-convite__rotulo {
+    margin-bottom: 2px;
+  }
+  .pro-convite__texto {
+    max-width: 20em;
+  }
+  .pro-convite__faiscas {
+    display: block;
+    position: static;
+    width: 40px;
+    transform: rotate(-60deg);
+  }
+  .pro-convite__btn {
+    margin-top: 0;
+  }
+}

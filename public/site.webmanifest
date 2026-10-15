@@ -1,0 +1,13 @@
+{
+  "name": "WebCariri",
+  "short_name": "WebCariri",
+  "description": "Estúdio criativo digital em Juazeiro do Norte. Sites do Cariri para todo o Brasil.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#F3EFE5",
+  "theme_color": "#F3EFE5",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
