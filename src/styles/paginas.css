@@ -976,6 +976,15 @@ main:focus {
   .prj-card__tela {
     --recorte: 1.38 / 1;
   }
+  /* quatro clientes: os três de baixo dividem a linha */
+  .prj-dupla--tres {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .prj-dupla--tres .prj-card__linha {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
 
   .prj-estudos {
     margin-top: 40px;
@@ -1013,6 +1022,9 @@ main:focus {
     font-size: 1.05rem;
   }
 
+  .prj-dupla--tres > .prj-card + .prj-card + .prj-card {
+    padding-top: 0;
+  }
   .prj-convite {
     margin-top: 40px;
     grid-template-columns: 1.1fr 1fr;
@@ -1088,4 +1100,10 @@ main:focus {
   .cld-titulo { --h1: 11.1vw; --h1-max: 10rem; }
   .crk-titulo { --h1: 16.6vw; --h1-max: 15rem; }
   .lun-titulo { --h1: 15.6vw; --h1-max: 14rem; }
+}
+
+@media (min-width: 1024px) {
+  .prj-dupla--tres {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }

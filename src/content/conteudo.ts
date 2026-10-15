@@ -185,7 +185,7 @@ export const ETAPAS_PROCESSO: {
 
 export const MATERIAIS = ['Logo', 'Fotos', 'Serviços', 'Contatos', 'Redes sociais'] as const;
 
-export type CaseId = 'caldas' | 'criaker' | 'lunar';
+export type CaseId = 'caldas' | 'criaker' | 'lunar' | 'efraim';
 
 export interface Case {
   id: CaseId;
@@ -203,6 +203,8 @@ export interface Case {
   imagemLargura: number;
   imagemAltura: number;
   alt: string;
+  /** true = tem página de case própria (/caldas...). false = o card leva direto ao site do cliente. */
+  pagina: boolean;
 }
 
 export const CASES: Case[] = [
@@ -222,6 +224,7 @@ export const CASES: Case[] = [
     imagemLargura: 1333,
     imagemAltura: 926,
     alt: 'Página inicial do site do Balneário do Caldas, com o título "Águas termais que renovam há 50 anos"',
+    pagina: true,
   },
   {
     id: 'criaker',
@@ -239,6 +242,7 @@ export const CASES: Case[] = [
     imagemLargura: 1100,
     imagemAltura: 773,
     alt: 'Página inicial do site da Criaker, fundo escuro com foto das sócias e o título "Criando de todas as formas e em todos os lugares"',
+    pagina: true,
   },
   {
     id: 'lunar',
@@ -256,8 +260,30 @@ export const CASES: Case[] = [
     imagemLargura: 1100,
     imagemAltura: 773,
     alt: 'Página inicial do site da Lunar Doceria, em tons de lilás, com o título "Momentos que iluminam o paladar"',
+    pagina: true,
+  },
+  {
+    id: 'efraim',
+    nome: 'Efraim Vitaliano',
+    nomeCurto: 'Efraim Vitaliano',
+    segmento: 'Advocacia',
+    segmentoCurto: 'Advocacia',
+    cidade: 'João Pessoa',
+    tipo: 'Site de uma página',
+    resumoCard: 'Site de uma página para advocacia em direito canábico, com serviços, manifesto e contato direto.',
+    url: 'https://www.efraimvitaliano.com.br/',
+    dominio: 'efraimvitaliano.com.br',
+    imagem: '/img/projetos/case-efraim.webp',
+    imagemPequena: '/img/projetos/case-efraim-700.webp',
+    imagemLargura: 1100,
+    imagemAltura: 773,
+    alt: 'Página inicial do site de Efraim Vitaliano, fundo claro com ilustrações botânicas e o título "a lei também faz parte da sua saúde"',
+    pagina: false,
   },
 ];
+
+/** Clientes com página de case (usados na Início e na sequência "próximo case"). */
+export const CASES_COM_PAGINA = () => CASES.filter((c) => c.pagina);
 
 export const caseById = (id: CaseId) => CASES.find((c) => c.id === id)!;
 

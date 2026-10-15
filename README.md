@@ -11,7 +11,7 @@ Nove rotas, versões desktop e mobile, pronto para a Vercel.
 | `/planos` | Planos |
 | `/parceiros` | Para agências |
 | `/contato` | Contato |
-| `/caldas`, `/criaker`, `/lunar` | Cases |
+| `/caldas`, `/criaker`, `/lunar` | Cases (Efraim Vitaliano aparece em Projetos e leva direto ao site dele) |
 
 Qualquer outro endereço mostra a página 404 do site.
 

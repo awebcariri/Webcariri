@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Balao, Cari, Perguntas, Sticker, Tela } from '../components/Comum';
 import { Faiscas, Icone, Seta, type NomeIcone } from '../components/Icone';
-import { CASES, ETAPAS_INICIO, FAQ_INICIO, PLANOS, caseById, type IconeEtapa, type PlanoId } from '../content/conteudo';
+import { CASES_COM_PAGINA, ETAPAS_INICIO, FAQ_INICIO, PLANOS, caseById, type IconeEtapa, type PlanoId } from '../content/conteudo';
 import { useSeo } from '../lib/hooks';
 
 export const ICONE_ETAPA: Record<IconeEtapa, NomeIcone> = {
@@ -92,7 +92,7 @@ export default function Inicio() {
           <p className="rotulo ini-secao__apoio">Sites com a cara de negócios reais do nosso Cariri</p>
         </div>
         <ul role="list" className="ini-projetos">
-          {CASES.map((c, i) => (
+          {CASES_COM_PAGINA().map((c, i) => (
             <li key={c.id} className="ini-projeto revelar" style={{ ['--atraso' as string]: `${i * 0.08}s` }}>
               <Link to={`/${c.id}`} className="ini-projeto__imagem" tabIndex={-1} aria-hidden="true">
                 <Tela src={c.imagemPequena} alt="" largura={700} altura={490} className={`ini-projeto__tela ini-projeto__tela--${c.id}`} />

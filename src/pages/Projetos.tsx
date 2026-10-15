@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Balao, Cari, Tela } from '../components/Comum';
-import { Faiscas, Seta } from '../components/Icone';
+import { Faiscas, Icone, Seta } from '../components/Icone';
 import { CASES, ESTUDOS } from '../content/conteudo';
 import { useSeo } from '../lib/hooks';
 
@@ -94,27 +94,40 @@ export default function Projetos() {
           </div>
         </article>
 
-        <div className="prj-dupla">
+        <div className={`prj-dupla ${outros.length > 2 ? 'prj-dupla--tres' : ''}`}>
           {outros.map((c, i) => (
             <article key={c.id} className="prj-card revelar" style={{ ['--atraso' as string]: `${i * 0.08}s` }}>
-              <Link to={`/${c.id}`} tabIndex={-1} aria-hidden="true">
-                <Tela src={c.imagem} srcPequena={c.imagemPequena} alt="" largura={c.imagemLargura} altura={c.imagemAltura} className="prj-card__tela" sizes="(max-width: 767px) 100vw, 600px" />
-              </Link>
+              {c.pagina ? (
+                <Link to={`/${c.id}`} tabIndex={-1} aria-hidden="true">
+                  <Tela src={c.imagem} srcPequena={c.imagemPequena} alt="" largura={c.imagemLargura} altura={c.imagemAltura} className="prj-card__tela" sizes="(max-width: 767px) 100vw, 600px" />
+                </Link>
+              ) : (
+                <a href={c.url} target="_blank" rel="noopener noreferrer" tabIndex={-1} aria-hidden="true">
+                  <Tela src={c.imagem} srcPequena={c.imagemPequena} alt="" largura={c.imagemLargura} altura={c.imagemAltura} className="prj-card__tela" sizes="(max-width: 767px) 100vw, 600px" />
+                </a>
+              )}
               <p className="prj-num">0{i + 2}</p>
               <div className="prj-card__linha">
                 <div>
                   <h2 className="titulo titulo--s prj-card__nome">
-                    <Link to={`/${c.id}`}>{c.nome}</Link>
+                    {c.pagina ? <Link to={`/${c.id}`}>{c.nome}</Link> : c.nome}
                   </h2>
                   <p className="prj-meta">
                     {c.segmentoCurto} • {c.cidade}
                   </p>
                   <p className="prj-resumo">{c.resumoCard}</p>
                 </div>
-                <Link to={`/${c.id}`} className="link-grifo">
-                  Ver case <Seta tamanho={18} />
-                  <span className="sr-only"> da {c.nome}</span>
-                </Link>
+                {c.pagina ? (
+                  <Link to={`/${c.id}`} className="link-grifo">
+                    Ver case <Seta tamanho={18} />
+                    <span className="sr-only"> da {c.nome}</span>
+                  </Link>
+                ) : (
+                  <a href={c.url} target="_blank" rel="noopener noreferrer" className="link-grifo">
+                    Visitar site <Icone nome="seta-diag" tamanho={18} traco={2.2} />
+                    <span className="sr-only"> de {c.nome} (abre em nova aba)</span>
+                  </a>
+                )}
               </div>
             </article>
           ))}

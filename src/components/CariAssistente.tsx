@@ -135,12 +135,21 @@ export function CariAssistente() {
               <ul role="list" className="cari-lista">
                 {CASES.map((c) => (
                   <li key={c.id}>
-                    <Link to={`/${c.id}`}>
-                      <strong>{c.nome}</strong>
-                      <span>
-                        {c.segmento} · {c.cidade}
-                      </span>
-                    </Link>
+                    {c.pagina ? (
+                      <Link to={`/${c.id}`}>
+                        <strong>{c.nome}</strong>
+                        <span>
+                          {c.segmento} · {c.cidade}
+                        </span>
+                      </Link>
+                    ) : (
+                      <a href={c.url} target="_blank" rel="noopener noreferrer">
+                        <strong>{c.nome} ↗</strong>
+                        <span>
+                          {c.segmento} · {c.cidade} · abre o site em nova aba
+                        </span>
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
