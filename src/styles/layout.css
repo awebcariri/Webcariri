@@ -7,6 +7,14 @@
   position: sticky;
   top: 0;
   z-index: 60;
+}
+/* O desfoque fica num pseudo-elemento: backdrop-filter no próprio cabeçalho
+   prenderia o menu do celular (position: fixed) à altura do cabeçalho. */
+.cabecalho::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
   background: color-mix(in srgb, var(--creme) 94%, transparent);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);

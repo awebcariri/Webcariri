@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Balao, Cari, Perguntas, Sticker, Tela } from '../components/Comum';
 import { Faiscas, Icone, Seta, type NomeIcone } from '../components/Icone';
-import { CASES_COM_PAGINA, ETAPAS_INICIO, FAQ_INICIO, PLANOS, caseById, type IconeEtapa, type PlanoId } from '../content/conteudo';
+import { CASES_COM_PAGINA, ETAPAS_INICIO, FAQ_INICIO, PLANOS, type IconeEtapa, type PlanoId } from '../content/conteudo';
 import { useSeo } from '../lib/hooks';
 
 export const ICONE_ETAPA: Record<IconeEtapa, NomeIcone> = {
@@ -19,7 +19,6 @@ export const ICONE_PLANO: Record<PlanoId, NomeIcone> = {
 
 export default function Inicio() {
   useSeo('/');
-  const caldas = caseById('caldas');
   const [todasDuvidas, setTodasDuvidas] = useState(false);
 
   return (
@@ -51,15 +50,16 @@ export default function Inicio() {
           </div>
         </div>
 
-        <div className="ini-hero__arte" aria-label="Prévia do site do Balneário do Caldas, feito pela WebCariri" role="img">
+        <div className="ini-hero__arte" aria-label="Prévia do site de Efraim Vitaliano, feito pela WebCariri" role="img">
           <span className="ini-hero__papel ini-hero__papel--1" aria-hidden="true" />
           <span className="ini-hero__papel ini-hero__papel--2" aria-hidden="true" />
+          {/* Prévia do topo: seção "conheça o meu trabalho" do site do Efraim. Troque a imagem aqui. */}
           <Tela
-            src={caldas.imagem}
-            srcPequena={caldas.imagemPequena}
+            src="/img/projetos/hero-efraim.webp"
+            srcPequena="/img/projetos/hero-efraim-700.webp"
             alt=""
-            largura={caldas.imagemLargura}
-            altura={caldas.imagemAltura}
+            largura={1400}
+            altura={653}
             barra
             prioridade
             className="ini-hero__tela"
