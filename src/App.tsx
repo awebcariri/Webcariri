@@ -13,6 +13,7 @@ import Contato from './pages/Contato';
 import CaseCaldas from './pages/CaseCaldas';
 import CaseCriaker from './pages/CaseCriaker';
 import CaseLunar from './pages/CaseLunar';
+import CaseEfraim from './pages/CaseEfraim';
 import NaoEncontrada from './pages/NaoEncontrada';
 
 export default function App() {
@@ -37,6 +38,7 @@ export default function App() {
           <Route path="/caldas" element={<CaseCaldas />} />
           <Route path="/criaker" element={<CaseCriaker />} />
           <Route path="/lunar" element={<CaseLunar />} />
+          <Route path="/efraim" element={<CaseEfraim />} />
           <Route path="*" element={<NaoEncontrada />} />
         </Routes>
       </main>

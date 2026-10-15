@@ -133,10 +133,10 @@ export default function CaseLunar() {
       </section>
 
       <ProximoCase
-        caso={caseById('caldas')}
+        caso={caseById('efraim')}
         numero="04"
         estilo="cartao"
-        texto="Um site para mostrar toda a estrutura do balneário e facilitar o planejamento dos visitantes."
+        texto="Um site de uma página para advocacia em direito canábico, com cada caso no caminho certo."
       />
     </>
   );

@@ -1078,3 +1078,34 @@
     margin-right: 30px;
   }
 }
+
+/* ---------- Efraim ---------- */
+.efr-titulo {
+  --h1-m: 4.2rem;
+}
+@media (min-width: 768px) {
+  .efr-titulo {
+    --h1: 11.1vw;
+    --h1-max: 10rem;
+  }
+  .efr-arte__nota {
+    position: absolute;
+    top: 4%;
+    right: 2%;
+    font-size: clamp(1.1rem, 1.7vw, 1.55rem);
+    transform: rotate(-14deg);
+  }
+  .efr-arte__faiscas {
+    width: 40px;
+    left: 18%;
+    top: 30%;
+    transform: rotate(-40deg);
+  }
+  .efr-arte__cari {
+    position: absolute;
+    right: 6%;
+    bottom: -40px;
+    width: 76%;
+    max-width: 380px !important;
+  }
+}

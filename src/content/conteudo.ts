@@ -278,7 +278,7 @@ export const CASES: Case[] = [
     imagemLargura: 1100,
     imagemAltura: 773,
     alt: 'Página inicial do site de Efraim Vitaliano, fundo claro com ilustrações botânicas e o título "a lei também faz parte da sua saúde"',
-    pagina: false,
+    pagina: true,
   },
 ];
 

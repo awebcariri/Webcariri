@@ -11,7 +11,7 @@ Nove rotas, versões desktop e mobile, pronto para a Vercel.
 | `/planos` | Planos |
 | `/parceiros` | Para agências |
 | `/contato` | Contato |
-| `/caldas`, `/criaker`, `/lunar` | Cases (Efraim Vitaliano aparece em Projetos e leva direto ao site dele) |
+| `/caldas`, `/criaker`, `/lunar`, `/efraim` | Cases |
 
 Qualquer outro endereço mostra a página 404 do site.
 
@@ -151,6 +151,7 @@ Textos que eu ajustei para não prometer o que não está confirmado:
 - Respostas da FAQ: a prancha só tem as perguntas. As respostas usam apenas informações publicadas no site atual; confirmar as de alterações, Google, domínio/hospedagem e criação de conteúdo.
 - Divisão "Sua agência / WebCariri": proposta de comunicação, combinada por projeto (o guia pede validação).
 - Nos planos, os itens resumidos da Início seguem a prancha; a página de Planos usa a lista completa do site atual.
+- Case Efraim (`/efraim`): não estava no PDF. Segue o modelo do Caldas; desafio e entregas foram escritos a partir do site publicado e precisam de revisão. A Início passou a mostrar 4 projetos (a prancha tinha 3).
 
 ---
 

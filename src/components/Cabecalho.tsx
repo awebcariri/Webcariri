@@ -47,7 +47,7 @@ export function Cabecalho() {
   }, []);
 
   // Cases contam como "Projetos" no menu.
-  const emProjetos = ['/projetos', '/caldas', '/criaker', '/lunar'].includes(pathname);
+  const emProjetos = ['/projetos', '/caldas', '/criaker', '/lunar', '/efraim'].includes(pathname);
 
   return (
     <header className={`cabecalho ${rolou ? 'cabecalho--rolou' : ''} ${aberto ? 'cabecalho--aberto' : ''}`}>
