@@ -42,15 +42,39 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "WebCariri",
-        "url": "https://www.webcariri.com.br",
-        "image": "https://www.webcariri.com.br/og.jpg",
-        "telephone": "+55 88 99976-1315",
-        "address": { "@type": "PostalAddress", "addressLocality": "Juazeiro do Norte", "addressRegion": "CE", "addressCountry": "BR" },
-        "areaServed": "BR",
-        "priceRange": "R$ 497 a R$ 1.497",
-        "sameAs": ["https://www.instagram.com/awebcariri"]
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://www.webcariri.com.br/#site",
+            "url": "https://www.webcariri.com.br/",
+            "name": "WebCariri",
+            "alternateName": ["Web Cariri", "Webcariri", "WC"],
+            "inLanguage": "pt-BR",
+            "publisher": { "@id": "https://www.webcariri.com.br/#estudio" }
+          },
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://www.webcariri.com.br/#estudio",
+            "name": "WebCariri",
+            "alternateName": ["Web Cariri", "Webcariri"],
+            "description": "Estúdio de criação de sites, landing pages e sites premium em Juazeiro do Norte, Ceará. Atende o Cariri e todo o Brasil, 100% online.",
+            "url": "https://www.webcariri.com.br/",
+            "image": "https://www.webcariri.com.br/og.jpg",
+            "logo": "https://www.webcariri.com.br/icon-512.png",
+            "telephone": "+55 88 99976-1315",
+            "address": { "@type": "PostalAddress", "addressLocality": "Juazeiro do Norte", "addressRegion": "CE", "addressCountry": "BR" },
+            "geo": { "@type": "GeoCoordinates", "latitude": -7.2131, "longitude": -39.3151 },
+            "areaServed": ["Juazeiro do Norte", "Crato", "Barbalha", "Cariri", "Brasil"],
+            "sameAs": ["https://www.instagram.com/awebcariri/", "https://maps.google.com/maps?cid=755831847868329975"],
+            "hasMap": "https://maps.google.com/maps?cid=755831847868329975",
+            "openingHoursSpecification": [
+              { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "08:00", "closes": "18:00" }
+            ],
+            "knowsAbout": ["Criação de sites", "Landing page", "Web design", "SEO local"],
+            "priceRange": "R$ 497 a R$ 1.497",
+            "contactPoint": { "@type": "ContactPoint", "contactType": "customer service", "telephone": "+55 88 99976-1315", "availableLanguage": "Portuguese", "url": "https://wa.me/5588999761315" }
+          }
+        ]
       }
     </script>
   </head>
