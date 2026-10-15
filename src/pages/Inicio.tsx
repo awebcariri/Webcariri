@@ -95,7 +95,15 @@ export default function Inicio() {
           {CASES_COM_PAGINA().map((c, i) => (
             <li key={c.id} className="ini-projeto revelar" style={{ ['--atraso' as string]: `${i * 0.08}s` }}>
               <Link to={`/${c.id}`} className="ini-projeto__imagem" tabIndex={-1} aria-hidden="true">
-                <Tela src={c.imagemPequena} alt="" largura={700} altura={490} className={`ini-projeto__tela ini-projeto__tela--${c.id}`} />
+                <Tela
+                  src={c.imagem}
+                  srcPequena={c.imagemPequena}
+                  alt=""
+                  largura={c.imagemLargura}
+                  altura={c.imagemAltura}
+                  sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 25vw"
+                  className={`ini-projeto__tela ini-projeto__tela--${c.id}`}
+                />
               </Link>
               <div className="ini-projeto__nome">
                 <Link to={`/${c.id}`}>{c.nome === 'Lunar Doceria' ? 'Lunar' : c.nome}</Link>

@@ -94,7 +94,7 @@ export function ProximoCase({
           Próximo projeto<span className="ponto">.</span>
         </h2>
         <Link to={`/${caso.id}`} className="cas-proximo__cartao">
-          <img src={caso.imagemPequena} alt="" width={700} height={490} loading="lazy" />
+          <img src={caso.imagemPequena} srcSet={`${caso.imagemPequena} 700w, ${caso.imagem} ${caso.imagemLargura}w`} sizes="(max-width: 767px) 100vw, 40vw" alt="" width={700} height={490} loading="lazy" />
           <span className="cas-proximo__info">
             <span className="rotulo">{caso.segmento.split(' ')[0]}</span>
             <strong>{caso.nome}.</strong>
