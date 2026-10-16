@@ -101,16 +101,19 @@ main:focus {
 }
 .ini-hero__nota {
   position: absolute;
-  left: 8%;
-  bottom: -14px;
-  font-size: 0.98rem;
+  left: 4%;
+  bottom: 18px;
+  font-size: 1.05rem;
   transform: rotate(-4deg);
 }
+/* celular: a seta fica depois do texto e aponta para a Cari, à direita */
 .ini-hero__nota-seta {
   position: absolute;
-  width: 26px;
-  left: -26px;
-  top: -10px;
+  width: 40px;
+  right: -52px;
+  left: auto;
+  top: 6px;
+  transform: scaleX(-1) rotate(-30deg);
 }
 
 /* seções */
@@ -434,7 +437,9 @@ main:focus {
   .ini-hero__nota-seta {
     width: 36px;
     left: -46px;
+    right: auto;
     top: -26px;
+    transform: none;
   }
 
   .ini-secao {
