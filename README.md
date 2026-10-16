@@ -71,6 +71,16 @@ public/
 
 ---
 
+## Banners de compartilhamento (WhatsApp, Instagram, Facebook, LinkedIn)
+
+Cada página tem um banner próprio de 1200x630 em `public/og/` (inicio.jpg, planos.jpg, caldas.jpg...). É a imagem que aparece quando alguém cola o link no WhatsApp, no direct do Instagram, no Facebook ou no LinkedIn.
+
+- **Textos e imagens dos banners:** `scripts/og/banners.mjs`. **Visual:** `scripts/og/modelo.html`.
+- **Gerar de novo:** `npm run og` (usa o Google Chrome instalado no computador; para outro caminho, defina `CHROME_PATH`). Depois faça commit dos JPGs.
+- **Página nova:** acrescente um item em `banners.mjs` com o nome da rota (ex.: `efraim` para `/efraim`) e rode `npm run og`. Sem banner próprio, a página usa o da Início.
+- **Cache do WhatsApp:** o build coloca `?v=` com um código do arquivo na URL da imagem. Mudou o banner, muda o código, e o WhatsApp busca a imagem nova. Links já enviados antes continuam com a prévia antiga.
+- **Conferir uma prévia:** cole o link em https://developers.facebook.com/tools/debug/ e clique em "Extrair novamente" (vale para WhatsApp e Instagram, que usam o mesmo leitor).
+
 ## Publicar na Vercel
 
 1. Suba o projeto para o GitHub.
