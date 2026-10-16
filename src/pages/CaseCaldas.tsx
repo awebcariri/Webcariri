@@ -6,10 +6,10 @@ import { caseById } from '../content/conteudo';
 import { useSeo } from '../lib/hooks';
 
 const ENTREGAS: { icone: NomeIcone; titulo: string; texto: string }[] = [
-  { icone: 'relogio', titulo: 'Horários e ingressos', texto: 'Informações claras sobre funcionamento e acesso.' },
-  { icone: 'mapa', titulo: 'Guia do visitante', texto: 'Principais atrações, dicas e orientações para o passeio.' },
-  { icone: 'cama', titulo: 'Hospedagem', texto: 'Destaque para opções de hospedagem na região.' },
-  { icone: 'pin', titulo: 'Como chegar', texto: 'Rotas e dicas de acesso para facilitar o planejamento.' },
+  { icone: 'relogio', titulo: 'Horários e ingressos', texto: 'Informações claras sobre funcionamento e acesso' },
+  { icone: 'mapa', titulo: 'Guia do visitante', texto: 'Principais atrações, dicas e orientações para o passeio' },
+  { icone: 'cama', titulo: 'Hospedagem', texto: 'Destaque para opções de hospedagem na região' },
+  { icone: 'pin', titulo: 'Como chegar', texto: 'Rotas e dicas de acesso para facilitar o planejamento' },
 ];
 
 export default function CaseCaldas() {
@@ -33,6 +33,9 @@ export default function CaseCaldas() {
             </li>
             <li>
               <Icone nome="pin" tamanho={20} /> {caso.cidade}, CE
+            </li>
+            <li>
+              <Icone nome="etiqueta" tamanho={20} /> {caso.tipo}
             </li>
           </ul>
           <BotoesCase caso={caso} />
@@ -119,7 +122,7 @@ export default function CaseCaldas() {
         </div>
       </section>
 
-      <ProximoCase caso={caseById('criaker')} texto="Um site para apresentar serviços e fortalecer a presença digital da marca no Cariri." />
+      <ProximoCase caso={caseById('criaker')} texto="Um site para apresentar serviços e fortalecer a presença digital da marca no Cariri" />
     </>
   );
 }

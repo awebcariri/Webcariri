@@ -356,6 +356,8 @@ main:focus {
 }
 .ini-convite__cari {
   width: 100%;
+  position: relative;
+  z-index: 1; /* a Cari fica na frente do sticker */
 }
 .ini-convite__sticker {
   display: none;
@@ -621,6 +623,7 @@ main:focus {
   .ini-convite__sticker {
     display: block;
     position: absolute;
+    z-index: 0;
     width: 46%;
     right: 0;
     top: 14px;

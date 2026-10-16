@@ -23,8 +23,8 @@ export const PLANOS: Plano[] = [
     id: 'landing-express',
     nome: 'Landing Express',
     preco: '497',
-    resumo: 'Uma página completa para começar a aparecer.',
-    resumoInicio: 'Uma página completa para começar com o essencial.',
+    resumo: 'Uma página completa para começar a aparecer',
+    resumoInicio: 'Uma página completa para começar com o essencial',
     itens: ['Uma página completa', 'Contato pelo WhatsApp', 'Horários, endereço e mapa', 'Adaptado ao celular'],
     itensInicio: ['Uma página completa', 'Contato pelo WhatsApp', 'Horários e endereço', 'Adaptado ao celular'],
   },
@@ -32,8 +32,8 @@ export const PLANOS: Plano[] = [
     id: 'site-profissional',
     nome: 'Site Profissional',
     preco: '897',
-    resumo: 'Mais espaço para apresentar o seu negócio.',
-    resumoInicio: 'Para quem precisa de mais páginas e um site completo.',
+    resumo: 'Mais espaço para apresentar o seu negócio',
+    resumoInicio: 'Para quem precisa de mais páginas e um site completo',
     itens: ['Várias seções ou páginas', 'Serviços, cardápio ou catálogo', 'Galeria de fotos', 'Estrutura preparada para o Google'],
     itensInicio: ['Várias seções ou páginas', 'Serviços ou catálogo', 'Galeria de fotos', 'Estrutura para o Google'],
     destaque: true,
@@ -42,8 +42,8 @@ export const PLANOS: Plano[] = [
     id: 'site-premium',
     nome: 'Site Premium',
     preco: '1.497',
-    resumo: 'Um site pensado sob medida.',
-    resumoInicio: 'Para projetos maiores e recursos personalizados.',
+    resumo: 'Um site pensado sob medida',
+    resumoInicio: 'Para projetos maiores e recursos personalizados',
     itens: ['Tudo do Site Profissional', 'Pedidos ou agendamento conforme escopo', 'Interações personalizadas', 'Planejamento das funções'],
     itensInicio: ['Tudo do Profissional', 'Funções conforme escopo', 'Interações personalizadas', 'Planejamento do projeto'],
   },
@@ -74,7 +74,7 @@ export const POS_LANCAMENTO = [
   {
     id: 'manutencao',
     titulo: 'Manutenção (opcional)',
-    texto: 'Oferecemos planos de manutenção para atualizações, ajustes e suporte contínuo, conforme a sua necessidade.',
+    texto: 'Oferecemos planos de manutenção para atualizações, ajustes e suporte contínuo, conforme a sua necessidade',
   },
 ];
 
@@ -126,11 +126,11 @@ export type IconeEtapa = 'conversa' | 'previa' | 'criacao' | 'noar';
 
 /** texto = desktop; curto = versão resumida do celular (como na prancha). */
 export const ETAPAS_INICIO: { n: string; titulo: string; texto: string; curto: string; icone: IconeEtapa }[] = [
-  { n: '01', titulo: 'Conversa', texto: 'Entendemos seu negócio, seus objetivos e o que você precisa.', curto: 'Entendemos seu negócio e seus objetivos.', icone: 'conversa' },
-  { n: '02', titulo: 'Prévia', texto: 'Você recebe uma proposta personalizada e uma prévia do seu projeto.', curto: 'Você recebe uma proposta personalizada.', icone: 'previa' },
-  { n: '03', titulo: 'Criação', texto: 'Desenvolvemos o site com design, conteúdo e todas as páginas.', curto: 'Desenvolvemos o site com design e conteúdo.', icone: 'criacao' },
+  { n: '01', titulo: 'Conversa', texto: 'Entendemos seu negócio, seus objetivos e o que você precisa', curto: 'Entendemos seu negócio e seus objetivos', icone: 'conversa' },
+  { n: '02', titulo: 'Prévia', texto: 'Você recebe uma proposta personalizada e uma prévia do seu projeto', curto: 'Você recebe uma proposta personalizada', icone: 'previa' },
+  { n: '03', titulo: 'Criação', texto: 'Desenvolvemos o site com design, conteúdo e todas as páginas', curto: 'Desenvolvemos o site com design e conteúdo', icone: 'criacao' },
   // REVISAR: a prancha dizia "com todo o suporte para crescer"; trocado para não prometer suporte fora da manutenção opcional.
-  { n: '04', titulo: 'No ar', texto: 'Seu site pronto, revisado e publicado, com orientação para os próximos passos.', curto: 'Seu site pronto, revisado e publicado.', icone: 'noar' },
+  { n: '04', titulo: 'No ar', texto: 'Seu site pronto, revisado e publicado, com orientação para os próximos passos', curto: 'Seu site pronto, revisado e publicado', icone: 'noar' },
 ];
 
 export const ETAPAS_PROCESSO: {
@@ -145,7 +145,7 @@ export const ETAPAS_PROCESSO: {
   {
     n: '01',
     titulo: 'Conversa',
-    resumo: 'Você conta como o seu negócio funciona e o que o site precisa resolver.',
+    resumo: 'Você conta como o seu negócio funciona e o que o site precisa resolver',
     icone: 'conversa',
     rotulo: 'Conversa',
     detalheTitulo: 'Tudo começa com uma boa conversa.',
@@ -155,7 +155,7 @@ export const ETAPAS_PROCESSO: {
   {
     n: '02',
     titulo: 'Prévia',
-    resumo: 'Você vê a primeira tela antes de fechar.',
+    resumo: 'Você vê a primeira tela antes de fechar',
     icone: 'previa',
     rotulo: 'Prévia',
     detalheTitulo: 'Você vê a primeira tela antes de fechar.',
@@ -164,7 +164,7 @@ export const ETAPAS_PROCESSO: {
   {
     n: '03',
     titulo: 'Criação',
-    resumo: 'Com tudo alinhado, criamos o site com atenção aos detalhes.',
+    resumo: 'Com tudo alinhado, criamos o site com atenção aos detalhes',
     icone: 'criacao',
     rotulo: 'Criação',
     detalheTitulo: 'Um site feito com propósito.',
@@ -174,7 +174,7 @@ export const ETAPAS_PROCESSO: {
   {
     n: '04',
     titulo: 'No ar',
-    resumo: 'Prazo médio do projeto: cerca de 12 dias, conforme escopo e envio dos materiais.',
+    resumo: 'Prazo médio do projeto: cerca de 12 dias, conforme escopo e envio dos materiais',
     icone: 'noar',
     rotulo: 'No ar',
     detalheTitulo: 'Seu negócio no mapa.',
@@ -194,6 +194,7 @@ export interface Case {
   segmento: string;
   segmentoCurto: string;
   cidade: string;
+  /** Plano contratado (Landing Express, Site Profissional ou Site Premium). */
   tipo: string;
   resumoCard: string;
   url: string;
@@ -215,8 +216,8 @@ export const CASES: Case[] = [
     segmento: 'Turismo e lazer',
     segmentoCurto: 'Turismo e lazer',
     cidade: 'Barbalha',
-    tipo: 'Site institucional',
-    resumoCard: 'Site institucional com foco em turismo, estrutura e fácil acesso às informações para visitantes.',
+    tipo: 'Site Premium',
+    resumoCard: 'Site Premium com foco em turismo, estrutura e fácil acesso às informações para visitantes',
     url: 'https://balneariodocaldas.com.br/',
     dominio: 'balneariodocaldas.com.br',
     imagem: '/img/projetos/caldas-hd.webp',
@@ -233,8 +234,8 @@ export const CASES: Case[] = [
     segmento: 'Agência de publicidade',
     segmentoCurto: 'Agência',
     cidade: 'Juazeiro do Norte',
-    tipo: 'Site institucional',
-    resumoCard: 'Site institucional que apresenta a equipe, serviços e cases da agência.',
+    tipo: 'Site Premium',
+    resumoCard: 'Site Premium que apresenta a equipe, serviços e cases da agência',
     url: 'https://www.criaker.com.br/',
     dominio: 'criaker.com.br',
     imagem: '/img/projetos/criaker-hd.webp',
@@ -251,8 +252,8 @@ export const CASES: Case[] = [
     segmento: 'Gastronomia',
     segmentoCurto: 'Gastronomia',
     cidade: 'Cariri',
-    tipo: 'Site institucional',
-    resumoCard: 'Site institucional com foco em cardápio, história da marca e contato.',
+    tipo: 'Site Profissional',
+    resumoCard: 'Site Profissional com foco em cardápio, história da marca e contato',
     url: 'https://lunardoceria.lovable.app/',
     dominio: 'lunardoceria.lovable.app',
     imagem: '/img/projetos/lunar-hd.webp',
@@ -269,8 +270,8 @@ export const CASES: Case[] = [
     segmento: 'Advocacia',
     segmentoCurto: 'Advocacia',
     cidade: 'João Pessoa',
-    tipo: 'Site de uma página',
-    resumoCard: 'Site de uma página para advocacia em direito canábico, com serviços, manifesto e contato direto.',
+    tipo: 'Landing Express',
+    resumoCard: 'Landing Express para advocacia em direito canábico, com serviços, manifesto e contato direto',
     url: 'https://www.efraimvitaliano.com.br/',
     dominio: 'efraimvitaliano.com.br',
     imagem: '/img/projetos/case-efraim.webp',

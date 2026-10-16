@@ -7,10 +7,10 @@ import { useSeo } from '../lib/hooks';
 
 // Entregas descritas a partir do site publicado (efraimvitaliano.com.br).
 const ENTREGAS: { icone: NomeIcone; titulo: string; texto: string }[] = [
-  { icone: 'conversas', titulo: 'Qual é o seu caso?', texto: 'Quatro caminhos: paciente que cultiva, prescritor, associação e HC negado.' },
-  { icone: 'doc-texto', titulo: 'Manifesto em vídeo', texto: 'A causa do escritório apresentada em vídeo e texto, sem juridiquês.' },
-  { icone: 'estrela', titulo: 'Avaliações do Google', texto: 'Nota e total do perfil, com link para ler e deixar avaliações.' },
-  { icone: 'whatsapp', titulo: 'Contato direto', texto: 'Conversa pelo WhatsApp e pelo Instagram sempre à mão.' },
+  { icone: 'conversas', titulo: 'Qual é o seu caso?', texto: 'Quatro caminhos: paciente que cultiva, prescritor, associação e HC negado' },
+  { icone: 'doc-texto', titulo: 'Manifesto em vídeo', texto: 'A causa do escritório apresentada em vídeo e texto, sem juridiquês' },
+  { icone: 'estrela', titulo: 'Avaliações do Google', texto: 'Nota e total do perfil, com link para ler e deixar avaliações' },
+  { icone: 'whatsapp', titulo: 'Contato direto', texto: 'Conversa pelo WhatsApp e pelo Instagram sempre à mão' },
 ];
 
 export default function CaseEfraim() {
@@ -37,6 +37,9 @@ export default function CaseEfraim() {
             </li>
             <li>
               <Icone nome="pin" tamanho={20} /> {caso.cidade}, PB
+            </li>
+            <li>
+              <Icone nome="etiqueta" tamanho={20} /> {caso.tipo}
             </li>
           </ul>
           <BotoesCase caso={caso} />
@@ -124,7 +127,7 @@ export default function CaseEfraim() {
         </div>
       </section>
 
-      <ProximoCase caso={caseById('caldas')} texto="Um site para mostrar toda a estrutura do balneário e facilitar o planejamento dos visitantes." />
+      <ProximoCase caso={caseById('caldas')} texto="Um site para mostrar toda a estrutura do balneário e facilitar o planejamento dos visitantes" />
     </>
   );
 }

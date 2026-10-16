@@ -560,3 +560,70 @@ html.menu-aberto .cari-assistente__gatilho {
   visibility: hidden;
   transition: visibility 0s linear 0.35s;
 }
+
+/* ---------- entrada do topo de cada página ----------
+   Primeiro bloco da página: a coluna de texto sobe item a item, o título
+   é revelado por máscara e a ilustração entra por último, com a Cari dando
+   um pequeno salto. Na primeira visita espera a abertura terminar. */
+:root {
+  --pg-base: 0.05s;
+}
+html.abrindo {
+  --pg-base: 1.05s;
+}
+.js .pagina > section:first-child > :first-child > * {
+  animation: pg-sobe 0.8s var(--ease) both;
+  animation-delay: calc(var(--pg-base) + var(--pg-i, 0) * 0.08s);
+}
+.js .pagina > section:first-child > :first-child > :nth-child(2) { --pg-i: 1; }
+.js .pagina > section:first-child > :first-child > :nth-child(3) { --pg-i: 2; }
+.js .pagina > section:first-child > :first-child > :nth-child(4) { --pg-i: 3; }
+.js .pagina > section:first-child > :first-child > :nth-child(5) { --pg-i: 4; }
+.js .pagina > section:first-child > :first-child > :nth-child(6) { --pg-i: 5; }
+.js .pagina > section:first-child > :first-child > :nth-child(n + 7) { --pg-i: 6; }
+.js .pagina > section:first-child h1 {
+  animation-name: pg-titulo;
+  animation-duration: 1s;
+}
+.js .pagina > section:first-child > :nth-child(2) {
+  animation: pg-arte 1s var(--ease) both;
+  animation-delay: calc(var(--pg-base) + 0.25s);
+}
+.js .pagina > section:first-child > :nth-child(2) .cari {
+  animation: pg-cari 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  animation-delay: calc(var(--pg-base) + 0.55s);
+}
+@keyframes pg-sobe {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+@keyframes pg-titulo {
+  from {
+    opacity: 0;
+    transform: translateY(0.3em);
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(-10% -5% -25% -5%);
+  }
+}
+@keyframes pg-arte {
+  from {
+    opacity: 0;
+    transform: translateY(32px) scale(0.96);
+  }
+}
+@keyframes pg-cari {
+  from {
+    opacity: 0;
+    transform: translateY(46px) rotate(-6deg) scale(0.9);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .pagina > section:first-child *,
+  .js .pagina > section:first-child > * {
+    animation: none !important;
+  }
+}

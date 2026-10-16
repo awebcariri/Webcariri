@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import { Abertura } from './components/Abertura';
 import { Cabecalho } from './components/Cabecalho';
 import { CariAssistente } from './components/CariAssistente';
@@ -19,6 +19,7 @@ import NaoEncontrada from './pages/NaoEncontrada';
 export default function App() {
   useRolagemDeRota();
   useRevelar();
+  const { pathname } = useLocation();
 
   return (
     <>
@@ -28,19 +29,22 @@ export default function App() {
       <Abertura />
       <Cabecalho />
       <main id="conteudo" tabIndex={-1}>
-        <Routes>
-          <Route path="/" element={<Inicio />} />
-          <Route path="/projetos" element={<Projetos />} />
-          <Route path="/como-funciona" element={<Processo />} />
-          <Route path="/planos" element={<Planos />} />
-          <Route path="/parceiros" element={<Parceiros />} />
-          <Route path="/contato" element={<Contato />} />
-          <Route path="/caldas" element={<CaseCaldas />} />
-          <Route path="/criaker" element={<CaseCriaker />} />
-          <Route path="/lunar" element={<CaseLunar />} />
-          <Route path="/efraim" element={<CaseEfraim />} />
-          <Route path="*" element={<NaoEncontrada />} />
-        </Routes>
+        {/* A chave nova a cada rota faz a animação de entrada do topo rodar de novo */}
+        <div className="pagina" key={pathname}>
+          <Routes>
+            <Route path="/" element={<Inicio />} />
+            <Route path="/projetos" element={<Projetos />} />
+            <Route path="/como-funciona" element={<Processo />} />
+            <Route path="/planos" element={<Planos />} />
+            <Route path="/parceiros" element={<Parceiros />} />
+            <Route path="/contato" element={<Contato />} />
+            <Route path="/caldas" element={<CaseCaldas />} />
+            <Route path="/criaker" element={<CaseCriaker />} />
+            <Route path="/lunar" element={<CaseLunar />} />
+            <Route path="/efraim" element={<CaseEfraim />} />
+            <Route path="*" element={<NaoEncontrada />} />
+          </Routes>
+        </div>
       </main>
       <Rodape />
       <CariAssistente />

@@ -104,8 +104,12 @@ export function Cari({
   );
 }
 
+/** Stickers redesenhados em vetor porque o arquivo do kit é pequeno demais e pixela ao ampliar. */
+const STICKERS_VETOR = new Set(['sol-e-serras-do-cariri']);
+
 export function Sticker({ nome, alt = '', className = '' }: { nome: string; alt?: string; className?: string }) {
-  return <img src={`/img/stickers/${nome}.webp`} alt={alt} className={`sticker ${className}`} loading="lazy" decoding="async" />;
+  const ext = STICKERS_VETOR.has(nome) ? 'svg' : 'webp';
+  return <img src={`/img/stickers/${nome}.${ext}`} alt={alt} className={`sticker ${className}`} loading="lazy" decoding="async" />;
 }
 
 export function Trilha({ itens }: { itens: { label: string; to?: string }[] }) {

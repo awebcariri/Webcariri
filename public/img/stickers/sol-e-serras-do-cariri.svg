@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="12 12 190 130" width="190" height="130">
+  <!-- Sol e serras do Cariri: vetor redesenhado a partir do sticker do kit (sol-e-serras-do-cariri.png, 213x153) -->
+  <defs>
+    <clipPath id="acima-das-serras">
+      <path d="M0 0H220V86L124 92 114 98 104 92C98 88 92 84 86 82L0 80Z" />
+    </clipPath>
+  </defs>
+  <g fill="none" stroke="#EB3E20" stroke-width="7.5" stroke-linecap="round">
+    <path d="M114.5 21v21" />
+    <path d="M83 32l12 15" />
+    <path d="M147 32l-12 15" />
+    <path d="M65 57l18 7" />
+    <path d="M165 57l-18 7" />
+  </g>
+  <circle cx="114.5" cy="77" r="22" fill="#EB3E20" clip-path="url(#acima-das-serras)" />
+  <path
+    fill="#651B26"
+    transform="translate(0 2)"
+    d="M17.5 107.5C30 95 48 87 68 86c20-1 36 6 50 17 14 11 27 23 38.5 34.5-3 .5-6 .5-8.5 0C136 126 123 115 109 106 95 97 81 93 67 94c-17 1-32 9-45.5 22Z"
+  />
+  <path fill="#651B26" d="M118.5 102.5C128 95 140 89.5 154 89.5c17 0 32 8 42.5 21.5-11 6.5-23 13-36 20Z" />
+</svg>

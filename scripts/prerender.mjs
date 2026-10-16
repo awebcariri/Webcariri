@@ -1,4 +1,4 @@
-// Depois do `vite build`: cria um HTML por rota (dist/projetos.html, dist/caldas.html...)
+// Depois do `vite build`: gera o sitemap.xml e cria um HTML por rota (dist/projetos.html, dist/caldas.html...)
 // com título, descrição, canonical e Open Graph próprios. Assim cada link compartilhado
 // mostra a prévia certa, e a Vercel serve a rota direto (cleanUrls).
 import { readFileSync, writeFileSync } from 'node:fs';
@@ -34,3 +34,26 @@ for (const rota of Object.keys(seo)) {
   console.log('  rota', rota.padEnd(15), '→ dist/' + arquivo);
 }
 writeFileSync(join(dist, 'index.html'), pagina('/'));
+
+// sitemap.xml gerado a partir das rotas do seo.json: página nova no seo.json entra sozinha no sitemap.
+const hoje = new Date().toISOString().slice(0, 10);
+const urls = Object.keys(seo)
+  .filter((rota) => rota !== '404')
+  .map((rota) => {
+    const prioridade = rota === '/' ? '1.0' : ['/projetos', '/planos', '/contato'].includes(rota) ? '0.8' : '0.6';
+    return `  <url>
+    <loc>${SITE}${rota === '/' ? '/' : rota}</loc>
+    <lastmod>${hoje}</lastmod>
+    <priority>${prioridade}</priority>
+  </url>`;
+  })
+  .join('\n');
+writeFileSync(
+  join(dist, 'sitemap.xml'),
+  `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls}
+</urlset>
+`
+);
+console.log('  sitemap.xml   →', Object.keys(seo).length - 1, 'URLs');

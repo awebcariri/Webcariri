@@ -8,11 +8,15 @@ export function Abertura() {
   const [mostrar, setMostrar] = useState(() => {
     if (typeof window === 'undefined') return false;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return false;
+    let abrir = true;
     try {
-      return sessionStorage.getItem('wc-abertura') !== '1';
+      abrir = sessionStorage.getItem('wc-abertura') !== '1';
     } catch {
-      return true;
+      /* navegação privada: mostra a abertura */
     }
+    // Enquanto a abertura está na tela, a entrada do topo da página espera por ela.
+    if (abrir) document.documentElement.classList.add('abrindo');
+    return abrir;
   });
 
   useEffect(() => {
@@ -22,7 +26,10 @@ export function Abertura() {
     } catch {
       /* navegação privada: segue sem lembrar */
     }
-    const t = window.setTimeout(() => setMostrar(false), 1500);
+    const t = window.setTimeout(() => {
+      setMostrar(false);
+      document.documentElement.classList.remove('abrindo');
+    }, 1500);
     return () => window.clearTimeout(t);
   }, [mostrar]);
 

@@ -190,6 +190,15 @@ const desenhos = {
       <path d="M12 11v5.5M12 7.8h.01" stroke="#fff" strokeWidth="2.2" />
     </>
   ),
+  // marca: círculo, triângulo e quadrado (ícone de "Logo" nos materiais)
+  formas: (
+    <>
+      <circle cx="8" cy="8" r="4.5" />
+      <path d="M16.5 3.5 21 11.5h-9Z" />
+      <rect x="4" y="13.5" width="7" height="7" rx="1" />
+      <path d="M14 17h7M17.5 13.5v7" />
+    </>
+  ),
   pasta: <path d="M3.5 7.5V18a1.5 1.5 0 0 0 1.5 1.5h14a1.5 1.5 0 0 0 1.5-1.5V9.5A1.5 1.5 0 0 0 19 8h-7l-2-2.5H5A1.5 1.5 0 0 0 3.5 7Z" />,
   etiqueta: (
     <>

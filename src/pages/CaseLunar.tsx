@@ -6,10 +6,10 @@ import { caseById } from '../content/conteudo';
 import { useSeo } from '../lib/hooks';
 
 const ENTREGAS: { icone: NomeIcone; titulo: string; texto: string }[] = [
-  { icone: 'cupcake', titulo: 'Cardápio visual', texto: 'Os doces em destaque, com uma apresentação leve e apetitosa.' },
-  { icone: 'doc-texto', titulo: 'História da marca', texto: 'Um espaço para contar a essência da Lunar e o que torna seus doces especiais.' },
-  { icone: 'whatsapp', titulo: 'Encomendas pelo WhatsApp', texto: 'Botão direto para facilitar o contato e os pedidos.' },
-  { icone: 'coracao', titulo: 'Identidade delicada', texto: 'Um visual que transmite a doçura da marca, com cores e tipografia na medida certa.' },
+  { icone: 'cupcake', titulo: 'Cardápio visual', texto: 'Os doces em destaque, com uma apresentação leve e apetitosa' },
+  { icone: 'doc-texto', titulo: 'História da marca', texto: 'Um espaço para contar a essência da Lunar e o que torna seus doces especiais' },
+  { icone: 'whatsapp', titulo: 'Encomendas pelo WhatsApp', texto: 'Botão direto para facilitar o contato e os pedidos' },
+  { icone: 'coracao', titulo: 'Identidade delicada', texto: 'Um visual que transmite a doçura da marca, com cores e tipografia na medida certa' },
 ];
 
 export default function CaseLunar() {
@@ -26,7 +26,7 @@ export default function CaseLunar() {
             <span className="acento">Doceria.</span>
           </h1>
           <p className="lun-sub">Uma vitrine delicada para encomendas especiais.</p>
-          <p className="rotulo lun-meta">Gastronomia • Cariri, CE</p>
+          <p className="rotulo lun-meta">Gastronomia • Cariri, CE • {caso.tipo}</p>
           <BotoesCase caso={caso} contorno />
         </div>
         <div className="cas-topo__arte lun-arte" aria-hidden="true">
@@ -136,7 +136,7 @@ export default function CaseLunar() {
         caso={caseById('efraim')}
         numero="04"
         estilo="cartao"
-        texto="Um site de uma página para advocacia em direito canábico, com cada caso no caminho certo."
+        texto="Landing Express para advocacia em direito canábico, com cada caso no caminho certo"
       />
     </>
   );

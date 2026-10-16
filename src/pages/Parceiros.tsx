@@ -4,27 +4,27 @@ import { Faiscas, Icone, Seta, type NomeIcone } from '../components/Icone';
 import { useSeo } from '../lib/hooks';
 
 const SERVICOS: { icone: NomeIcone; titulo: string; texto: string }[] = [
-  { icone: 'janela-casa', titulo: 'Sites institucionais', texto: 'Uma presença própria para os clientes da sua agência.' },
-  { icone: 'janela-lista', titulo: 'Landing pages', texto: 'Páginas para uma oferta ou campanha, prontas para receber tráfego.' },
-  { icone: 'varinha', titulo: 'Projetos sob medida', texto: 'Escopo, prazo e responsabilidades combinados em cada projeto.' },
+  { icone: 'janela-casa', titulo: 'Sites institucionais', texto: 'Uma presença própria para os clientes da sua agência' },
+  { icone: 'janela-lista', titulo: 'Landing pages', texto: 'Páginas para uma oferta ou campanha, prontas para receber tráfego' },
+  { icone: 'varinha', titulo: 'Projetos sob medida', texto: 'Escopo, prazo e responsabilidades combinados em cada projeto' },
 ];
 
 const PASSOS: { icone: NomeIcone; titulo: string; texto: string }[] = [
-  { icone: 'doc-texto', titulo: 'Alinhamos a demanda', texto: 'Entendemos os objetivos, o público e os requisitos do projeto.' },
-  { icone: 'conversas', titulo: 'Definimos escopo e responsabilidades', texto: 'Deixamos claro o que fica com sua agência e o que fica com a WebCariri.' },
-  { icone: 'check-circulo', titulo: 'Criamos e revisamos juntos', texto: 'Desenvolvemos, alinhamos os ajustes e entregamos o site pronto.' },
+  { icone: 'doc-texto', titulo: 'Alinhamos a demanda', texto: 'Entendemos os objetivos, o público e os requisitos do projeto' },
+  { icone: 'conversas', titulo: 'Definimos escopo e responsabilidades', texto: 'Deixamos claro o que fica com sua agência e o que fica com a WebCariri' },
+  { icone: 'check-circulo', titulo: 'Criamos e revisamos juntos', texto: 'Desenvolvemos, alinhamos os ajustes e entregamos o site pronto' },
 ];
 
 // REVISAR: divisão de papéis é uma proposta de comunicação, combinada por projeto (não é contrato).
 const AGENCIA: { icone: NomeIcone; titulo: string; texto: string }[] = [
-  { icone: 'megafone', titulo: 'Estratégia', texto: 'Posicionamento, campanha e definição de objetivos.' },
-  { icone: 'pessoas', titulo: 'Cliente', texto: 'Relacionamento, briefing e aprovações.' },
-  { icone: 'doc-texto', titulo: 'Conteúdo', texto: 'Textos, imagens e direcionamentos da comunicação.' },
+  { icone: 'megafone', titulo: 'Estratégia', texto: 'Posicionamento, campanha e definição de objetivos' },
+  { icone: 'pessoas', titulo: 'Cliente', texto: 'Relacionamento, briefing e aprovações' },
+  { icone: 'doc-texto', titulo: 'Conteúdo', texto: 'Textos, imagens e direcionamentos da comunicação' },
 ];
 const WEBCARIRI: { icone: NomeIcone; titulo: string; texto: string }[] = [
-  { icone: 'pincel', titulo: 'Design', texto: 'Direção criativa, UI e prototipação do site.' },
-  { icone: 'codigo', titulo: 'Desenvolvimento', texto: 'Tecnologia, performance e responsividade.' },
-  { icone: 'foguete', titulo: 'Publicação', texto: 'Configuração, testes e site no ar, pronto para uso.' },
+  { icone: 'pincel', titulo: 'Design', texto: 'Direção criativa, UI e prototipação do site' },
+  { icone: 'codigo', titulo: 'Desenvolvimento', texto: 'Tecnologia, performance e responsividade' },
+  { icone: 'foguete', titulo: 'Publicação', texto: 'Configuração, testes e site no ar, pronto para uso' },
 ];
 
 const CONTATO_PARCERIA = '/contato?plano=parceria';

@@ -50,6 +50,12 @@ export default function CaseCriaker() {
                   <small>Cidade</small> Juazeiro do Norte, CE
                 </span>
               </li>
+              <li>
+                <Icone nome="estrela" tamanho={24} traco={1.6} />
+                <span>
+                  <small>Plano</small> {caso.tipo}
+                </span>
+              </li>
             </ul>
             <Cari pose="curioso" className="crk-meta__cari so-mobile" largura={140} />
           </div>
@@ -84,7 +90,7 @@ export default function CaseCriaker() {
             O que entregamos<span className="ponto">.</span>
           </h2>
           <p className="texto">
-            Um site institucional completo, com visual escuro fiel à identidade da agência, destacando seus principais
+            Um Site Premium completo, com visual escuro fiel à identidade da agência, destacando seus principais
             diferenciais:
           </p>
           <ul role="list" className="crk-tiles">

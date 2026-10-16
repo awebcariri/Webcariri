@@ -12,7 +12,7 @@ const ICONE: Record<IconeEtapa, NomeIcone> = {
   noar: 'foguete',
 };
 const ICONE_MATERIAL: Record<(typeof MATERIAIS)[number], NomeIcone> = {
-  Logo: 'imagem',
+  Logo: 'formas',
   Fotos: 'imagem',
   Serviços: 'doc-texto',
   Contatos: 'usuario',
@@ -38,7 +38,7 @@ function Ilustracao({ etapa }: { etapa: IconeEtapa }) {
               Seu negócio <br />
               <span>em boas mãos.</span>
             </p>
-            <img src="/img/stickers/sol-e-serras-do-cariri.webp" alt="" width={213} height={153} className="pro-mock__sol" />
+            <img src="/img/stickers/sol-e-serras-do-cariri.svg" alt="" width={190} height={130} className="pro-mock__sol" />
           </div>
         </div>
       </div>
