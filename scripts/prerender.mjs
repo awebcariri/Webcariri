@@ -20,12 +20,13 @@ const esc = (t) => t.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g
 /** Banner de compartilhamento da rota, com versão pelo conteúdo do arquivo (o WhatsApp guarda cache por URL). */
 function banner(rota) {
   const nome = rota === '/' || rota === '404' || !BANNERS[rota.slice(1)] ? 'inicio' : rota.slice(1);
-  const arquivo = join(raiz, 'public', 'og', `${nome}.jpg`);
+  const imagem = nome === 'inicio' ? 'capa-webcariri.jpg' : `${nome}.jpg`;
+  const arquivo = join(raiz, 'public', 'og', imagem);
   if (!existsSync(arquivo)) throw new Error(`Falta public/og/${nome}.jpg: rode npm run og`);
   const v = createHash('md5').update(readFileSync(arquivo)).digest('hex').slice(0, 8);
   const dados = BANNERS[nome];
   const titulo = dados.titulo.replace(/<br>/g, ' ').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
-  return { url: `${SITE}/og/${nome}.jpg?v=${v}`, alt: `WebCariri: ${titulo}` };
+  return { url: `${SITE}/og/${imagem}?v=${v}`, alt: `WebCariri: ${titulo}`, largura: nome === 'inicio' ? 1600 : 1200, altura: nome === 'inicio' ? 900 : 630 };
 }
 
 function pagina(rota) {
@@ -38,6 +39,8 @@ function pagina(rota) {
     .replace(/(<meta property="og:image" content=")[^"]*(")/, `$1${og.url}$2`)
     .replace(/(<meta property="og:image:secure_url" content=")[^"]*(")/, `$1${og.url}$2`)
     .replace(/(<meta property="og:image:alt" content=")[^"]*(")/, `$1${esc(og.alt)}$2`)
+    .replace(/(<meta property="og:image:width" content=")[^"]*(")/, `$1${og.largura}$2`)
+    .replace(/(<meta property="og:image:height" content=")[^"]*(")/, `$1${og.altura}$2`)
     .replace(/(<meta name="twitter:image" content=")[^"]*(")/, `$1${og.url}$2`)
     .replace(/(<meta name="twitter:image:alt" content=")[^"]*(")/, `$1${esc(og.alt)}$2`)
     .replace(/<title>[^<]*<\/title>/, `<title>${esc(title)}</title>`)

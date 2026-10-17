@@ -79,7 +79,9 @@ public/
 
 ## Banners de compartilhamento (WhatsApp, Instagram, Facebook, LinkedIn)
 
-Cada página tem um banner próprio de 1200x630 em `public/og/` (inicio.jpg, planos.jpg, caldas.jpg...). É a imagem que aparece quando alguém cola o link no WhatsApp, no direct do Instagram, no Facebook ou no LinkedIn.
+Cada página tem um banner próprio em `public/og/`. A página inicial usa `capa-webcariri.jpg` (1600x900), a capa fornecida pela WebCariri, preservada sem cortes. As demais usam os banners gerados de 1200x630 (planos.jpg, caldas.jpg...). É a imagem indicada quando alguém compartilha o link no WhatsApp, no direct do Instagram, no Facebook ou no LinkedIn.
+
+A capa original não é sobrescrita por `npm run og`. Para trocá-la, substitua `public/og/capa-webcariri.jpg`; se mudar as dimensões, atualize também `index.html` e `scripts/prerender.mjs`.
 
 - **Textos e imagens dos banners:** `scripts/og/banners.mjs`. **Visual:** `scripts/og/modelo.html`.
 - **Gerar de novo:** `npm run og` (usa o Google Chrome instalado no computador; para outro caminho, defina `CHROME_PATH`). Depois faça commit dos JPGs.
