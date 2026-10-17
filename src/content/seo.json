@@ -1,7 +1,11 @@
 {
+  "404": {
+    "title": "Página não encontrada | WebCariri",
+    "description": "Essa página não existe. Volte para o início ou veja os projetos da WebCariri."
+  },
   "/": {
-    "title": "WebCariri | Sites do Cariri para todo o Brasil",
-    "description": "Estúdio criativo digital em Juazeiro do Norte. Sites com a cara do seu negócio, feitos para aparecer no Google e vender pelo WhatsApp. Prévia antes de fechar."
+    "title": "Criação de sites em Juazeiro do Norte | WebCariri",
+    "description": "Criação de sites profissionais e landing pages em Juazeiro do Norte, com atendimento online para todo o Brasil. Conheça os projetos da WebCariri."
   },
   "/projetos": {
     "title": "Projetos: sites de clientes e estudos autorais | WebCariri",
@@ -12,8 +16,8 @@
     "description": "Conversa, prévia, criação e publicação. Você vê a primeira tela antes de fechar; prazo médio de cerca de 12 dias, conforme escopo e materiais."
   },
   "/planos": {
-    "title": "Planos e preços de sites a partir de R$ 497 | WebCariri",
-    "description": "Landing Express a partir de R$ 497, Site Profissional a partir de R$ 897 e Site Premium a partir de R$ 1.497. Pagamento 50% no início e 50% na entrega."
+    "title": "Criação de Sites e Landing Pages | Planos WebCariri",
+    "description": "Conheça os planos de criação de sites: Landing Express, Site Profissional e Site Premium. Projetos para negócios do Cariri e de todo o Brasil."
   },
   "/parceiros": {
     "title": "Para agências: design e código para seus clientes | WebCariri",
@@ -38,9 +42,5 @@
   "/efraim": {
     "title": "Case Efraim Vitaliano | WebCariri",
     "description": "Site de uma página para o advogado Efraim Vitaliano, de João Pessoa: direito canábico explicado com clareza, quatro caminhos por tipo de caso e regras da OAB."
-  },
-  "404": {
-    "title": "Página não encontrada | WebCariri",
-    "description": "Essa página não existe. Volte para o início ou veja os projetos da WebCariri."
   }
 }

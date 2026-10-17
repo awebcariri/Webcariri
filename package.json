@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && node scripts/prerender.mjs",
+    "build": "tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir .prerender-ssr && node scripts/prerender.mjs",
     "typecheck": "tsc -b --noEmit",
     "preview": "vite preview",
-    "og": "node scripts/og/gerar.mjs"
+    "og": "node scripts/og/gerar.mjs",
+    "verify:seo": "node scripts/verify-prerender.mjs"
   },
   "dependencies": {
     "react": "18.3.1",

@@ -1,37 +1,30 @@
 import { useEffect, useState } from 'react';
 
-/**
- * Abertura curta (cerca de 1,3 s): fundo creme, Cari, assinatura e cortina que sobe.
- * Aparece só na primeira página da visita e nunca com "reduzir movimento".
- */
+/** Abertura na primeira visita, respeitando a preferência de reduzir movimento. */
 export function Abertura() {
-  const [mostrar, setMostrar] = useState(() => {
-    if (typeof window === 'undefined') return false;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return false;
-    let abrir = true;
-    try {
-      abrir = sessionStorage.getItem('wc-abertura') !== '1';
-    } catch {
-      /* navegação privada: mostra a abertura */
-    }
-    // Enquanto a abertura está na tela, a entrada do topo da página espera por ela.
-    if (abrir) document.documentElement.classList.add('abrindo');
-    return abrir;
-  });
+  const [mostrar, setMostrar] = useState(false);
 
   useEffect(() => {
-    if (!mostrar) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     try {
-      sessionStorage.setItem('wc-abertura', '1');
+      if (sessionStorage.getItem('wc-abertura') === '1') return;
     } catch {
-      /* navegação privada: segue sem lembrar */
+      // Navegação privada: segue normalmente.
     }
+
+    document.documentElement.classList.add('abrindo');
+    setMostrar(true);
     const t = window.setTimeout(() => {
       setMostrar(false);
       document.documentElement.classList.remove('abrindo');
+      try { sessionStorage.setItem('wc-abertura', '1'); } catch { /* modo privado */ }
     }, 1500);
-    return () => window.clearTimeout(t);
-  }, [mostrar]);
+
+    return () => {
+      window.clearTimeout(t);
+      document.documentElement.classList.remove('abrindo');
+    };
+  }, []);
 
   if (!mostrar) return null;
 

@@ -5,6 +5,9 @@ import { SITE } from '../config/site';
 
 type SeoChave = keyof typeof seo;
 
+// useLayoutEffect não executa no servidor: evita avisos no pré-render estático.
+const useIsomorphicLayoutEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect;
+
 function meta(seletor: string, atributo: string, valor: string) {
   let el = document.head.querySelector<HTMLMetaElement | HTMLLinkElement>(seletor);
   if (!el) {
@@ -36,7 +39,7 @@ export function useSeo(chave: SeoChave) {
 /** Volta ao topo ao trocar de página (ou vai até a âncora). */
 export function useRolagemDeRota() {
   const { pathname, hash } = useLocation();
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (hash) {
       const alvo = document.getElementById(decodeURIComponent(hash.slice(1)));
       if (alvo) {

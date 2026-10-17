@@ -1,7 +1,7 @@
 # WebCariri — site (React + TypeScript + Vite)
 
 Implementação do redesign descrito no PDF **WebCariri-Redesign-Desktop-Mobile** (15/10/2026), com a identidade do kit **WebCariri + Cari**.
-Nove rotas, versões desktop e mobile, pronto para a Vercel.
+Dez rotas de conteúdo e uma página 404, versões desktop e mobile, pronto para a Vercel.
 
 | Rota | Página |
 | --- | --- |
@@ -34,8 +34,14 @@ Abra http://localhost:5173. As alterações aparecem na hora.
 Outros comandos:
 
 - `npm run typecheck` — confere os tipos do TypeScript.
-- `npm run build` — verifica os tipos, gera o site em `dist/` e cria um HTML por rota com título, descrição e prévia de compartilhamento próprios (`scripts/prerender.mjs`).
+- `npm run build` — verifica os tipos, gera os bundles de navegador e pré-renderização e cria um HTML completo por rota com conteúdo, título, descrição e prévia próprios (`scripts/prerender.mjs`). O navegador hidrata esse HTML para ativar as interações.
+- `npm run verify:seo` — verifica as 11 páginas geradas, metadados por rota, dados estruturados, redirecionamentos configurados e sitemap.
 - `npm run preview` — abre a versão de produção gerada em `dist/`.
+- `node scripts/verify-browser.mjs` — com o preview em execução, testa as dez rotas em 390 e 1440px, hidratação, Cari, menu, abertura e conteúdo sem JavaScript. Usa o Chrome instalado; aceita `CHROME_PATH` e `PREVIEW_URL`. Capturas ficam em `.prerender-ssr/screenshots/` (ignorada pelo Git).
+
+A integração contínua em `.github/workflows/seo-check.yml` executa instalação pelo lockfile, typecheck, build e verificação de SEO nos pull requests e pushes para main. Nenhuma dependência foi adicionada para a pré-renderização.
+
+O bundle `.prerender-ssr/` só é usado durante o build; a publicação continua estática. O sitemap não usa datas de atualização artificiais. Os dados estruturados representam a WebCariri como `Organization`, com atendimento online, sem endereço de estabelecimento físico.
 
 ---
 
@@ -88,7 +94,9 @@ Cada página tem um banner próprio de 1200x630 em `public/og/` (inicio.jpg, pla
 3. Em **Domains**, deixe `www.webcariri.com.br` como principal e o endereço sem `www` redirecionando para ele.
 4. Depois de publicar: envie `https://www.webcariri.com.br/sitemap.xml` no Google Search Console.
 
-O `vercel.json` mantém os redirecionamentos antigos (`/portfolio` → `/projetos`), cache longo para fontes e scripts, e cabeçalhos básicos de segurança. Cada rota tem seu próprio HTML (gerado no build), então links diretos e prévias no WhatsApp funcionam. Se a prévia antiga continuar aparecendo no WhatsApp, compartilhe com `?v=2` no fim do link.
+O `vercel.json` mantém os redirecionamentos antigos (`/portfolio` → `/projetos`, `/servicos` → `/planos`), cache longo para fontes e scripts, e cabeçalhos básicos de segurança. Cada rota tem seu próprio HTML completo (gerado no build), servido por `cleanUrls`, sem rewrite global para a página inicial. Se a prévia antiga continuar aparecendo no WhatsApp, compartilhe com `?v=2` no fim do link.
+
+Antes de publicar, execute `npm run typecheck`, `npm run build` e `npm run verify:seo`, e revise o preview. Os redirecionamentos e o status HTTP 404 precisam também ser conferidos no preview da Vercel; o servidor local do Vite não executa as regras de `vercel.json`.
 
 Não há variáveis de ambiente: nenhuma integração precisa de chave hoje, por isso não há `.env.example`.
 

@@ -36,7 +36,7 @@ export default function Planos() {
             <span className="acento">começa aqui.</span>
           </h1>
           <Faiscas className="pla-topo__faiscas-titulo" />
-          <p className="lead pla-topo__lead">Valores de partida. Escopo e valor definidos antes de começar.</p>
+          <p className="lead pla-topo__lead">Criação de sites e landing pages para negócios do Cariri e de todo o Brasil. Valores e escopo definidos antes de começar.</p>
         </div>
         <div className="pla-topo__arte" aria-hidden="true">
           <Balao variante="branco" forma="quadrado" className="pla-topo__balao">

@@ -34,8 +34,8 @@ export default function Inicio() {
           </h1>
           <p className="ini-hero__sub">Sites do Cariri para todo o Brasil.</p>
           <p className="lead ini-hero__lead">
-            Criamos sites que conectam seu negócio a novas possibilidades. Projetos com a cara do seu negócio, feitos para
-            aparecer no Google e vender pelo WhatsApp.
+            Criamos sites profissionais em Juazeiro do Norte para marcas de todo o Brasil. Projetos com a cara do seu
+            negócio, feitos para aparecer no Google e gerar oportunidades pelo WhatsApp.
           </p>
           <div className="ini-hero__acoes">
             <Link to="/contato" className="btn btn--grande">

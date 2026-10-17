@@ -6,11 +6,13 @@ import { createHash } from 'node:crypto';
 import { BANNERS } from './og/banners.mjs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { pathToFileURL } from 'node:url';
 
 const raiz = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(raiz, 'dist');
 const seo = JSON.parse(readFileSync(join(raiz, 'src/content/seo.json'), 'utf8'));
 const base = readFileSync(join(dist, 'index.html'), 'utf8');
+const { render } = await import(pathToFileURL(join(raiz, '.prerender-ssr', 'entry-server.js')).href);
 const SITE = 'https://www.webcariri.com.br';
 
 const esc = (t) => t.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
@@ -30,7 +32,9 @@ function pagina(rota) {
   const { title, description } = seo[rota];
   const url = SITE + (rota === '/' || rota === '404' ? '/' : rota);
   const og = banner(rota);
+  const caminho = rota === '404' ? '/pagina-nao-encontrada' : rota;
   return base
+    .replace('<div id="root"></div>', `<div id="root">${render(caminho)}</div>`)
     .replace(/(<meta property="og:image" content=")[^"]*(")/, `$1${og.url}$2`)
     .replace(/(<meta property="og:image:secure_url" content=")[^"]*(")/, `$1${og.url}$2`)
     .replace(/(<meta property="og:image:alt" content=")[^"]*(")/, `$1${esc(og.alt)}$2`)
@@ -55,14 +59,12 @@ for (const rota of Object.keys(seo)) {
 writeFileSync(join(dist, 'index.html'), pagina('/'));
 
 // sitemap.xml gerado a partir das rotas do seo.json: página nova no seo.json entra sozinha no sitemap.
-const hoje = new Date().toISOString().slice(0, 10);
 const urls = Object.keys(seo)
   .filter((rota) => rota !== '404')
   .map((rota) => {
     const prioridade = rota === '/' ? '1.0' : ['/projetos', '/planos', '/contato'].includes(rota) ? '0.8' : '0.6';
     return `  <url>
     <loc>${SITE}${rota === '/' ? '/' : rota}</loc>
-    <lastmod>${hoje}</lastmod>
     <priority>${prioridade}</priority>
   </url>`;
   })
