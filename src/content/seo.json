@@ -4,8 +4,8 @@
     "description": "Essa página não existe. Volte para o início ou veja os projetos da WebCariri."
   },
   "/": {
-    "title": "Criação de sites em Juazeiro do Norte | WebCariri",
-    "description": "Criação de sites profissionais e landing pages em Juazeiro do Norte, com atendimento online para todo o Brasil. Conheça os projetos da WebCariri."
+    "title": "WebCariri — links",
+    "description": "Conheça o site oficial da WebCariri, nossos projetos e planos. Fale conosco."
   },
   "/projetos": {
     "title": "Projetos: sites de clientes e estudos autorais | WebCariri",
@@ -42,5 +42,9 @@
   "/efraim": {
     "title": "Case Efraim Vitaliano | WebCariri",
     "description": "Site de uma página para o advogado Efraim Vitaliano, de João Pessoa: direito canábico explicado com clareza, quatro caminhos por tipo de caso e regras da OAB."
+  },
+  "/inicio": {
+    "title": "Criação de sites em Juazeiro do Norte | WebCariri",
+    "description": "Criação de sites profissionais e landing pages em Juazeiro do Norte, com atendimento online para todo o Brasil. Conheça os projetos da WebCariri."
   }
 }

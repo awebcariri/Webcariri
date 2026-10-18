@@ -52,7 +52,7 @@ export function Cabecalho() {
   return (
     <header className={`cabecalho ${rolou ? 'cabecalho--rolou' : ''} ${aberto ? 'cabecalho--aberto' : ''}`}>
       <div className="container cabecalho__barra">
-        <Link to="/" className="cabecalho__logo" aria-label="WebCariri, página inicial">
+        <Link to="/inicio" className="cabecalho__logo" aria-label="WebCariri, página inicial">
           <Logo />
         </Link>
 
@@ -105,7 +105,7 @@ export function Cabecalho() {
         <nav className="container" aria-label="Menu do celular">
           <ul role="list" className="menu-mobile__lista">
             <li>
-              <NavLink to="/" end className="menu-mobile__link">
+              <NavLink to="/inicio" end className="menu-mobile__link">
                 Início
               </NavLink>
             </li>

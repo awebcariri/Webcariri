@@ -18,7 +18,7 @@ export const ICONE_PLANO: Record<PlanoId, NomeIcone> = {
 };
 
 export default function Inicio() {
-  useSeo('/');
+  useSeo('/inicio');
   const [todasDuvidas, setTodasDuvidas] = useState(false);
 
   return (

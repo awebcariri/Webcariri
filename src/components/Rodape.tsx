@@ -9,7 +9,7 @@ export function Rodape() {
       <div className="container">
         <div className="rodape__grade">
           <div className="rodape__marca">
-            <Link to="/" aria-label="WebCariri, página inicial">
+            <Link to="/inicio" aria-label="WebCariri, página inicial">
               <Logo className="rodape__logo" />
             </Link>
             <p className="rodape__slogan">{SITE.slogan}</p>

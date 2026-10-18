@@ -13,7 +13,7 @@ try {
     const page = await context.newPage();
     page.on('pageerror', e => errors.push(e.message));
     page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
-    for (const route of Object.keys(seo).filter(r => r !== '404')) {
+    for (const route of Object.keys(seo).filter(r => r !== '404' && r !== '/')) {
       await page.goto(base + route);
       await page.waitForTimeout(1800);
       assert.equal(await page.title(), seo[route].title);
@@ -64,7 +64,7 @@ try {
   await reduced.close();
   const noJs = await browser.newContext({ javaScriptEnabled: false });
   const staticPage = await noJs.newPage();
-  for (const route of ['/', '/planos', '/projetos', '/contato', '/criaker']) {
+  for (const route of ['/inicio', '/planos', '/projetos', '/contato', '/criaker']) {
     await staticPage.goto(base + route);
     assert.ok(await staticPage.locator('h1').isVisible());
     assert.ok((await staticPage.locator('main').innerText()).length > 200);

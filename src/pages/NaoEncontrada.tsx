@@ -15,7 +15,7 @@ export default function NaoEncontrada() {
         </h1>
         <p className="lead">O endereço pode ter mudado. Bora voltar para um caminho conhecido?</p>
         <div className="nao-encontrada__acoes">
-          <Link to="/" className="btn">
+          <Link to="/inicio" className="btn">
             Ir para o início <Seta />
           </Link>
           <Link to="/projetos" className="btn btn--contorno">

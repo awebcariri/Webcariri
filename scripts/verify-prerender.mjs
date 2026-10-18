@@ -5,7 +5,7 @@ import { join } from 'node:path';
 const dist = join(process.cwd(), 'dist');
 const seo = JSON.parse(readFileSync('src/content/seo.json', 'utf8'));
 const escape = value => value.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
-const paginas = ['index.html', 'projetos.html', 'como-funciona.html', 'planos.html',
+const paginas = ['index.html', 'inicio.html', 'projetos.html', 'como-funciona.html', 'planos.html',
   'parceiros.html', 'contato.html', 'caldas.html', 'criaker.html', 'lunar.html',
   'efraim.html', '404.html'];
 
