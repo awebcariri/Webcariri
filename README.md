@@ -109,7 +109,7 @@ Não há variáveis de ambiente: nenhuma integração precisa de chave hoje, por
 ## Comportamentos
 
 - **Menu do celular:** abre em tela cheia, mantém o foco dentro, fecha com Esc (o foco volta ao botão) e ao trocar de página.
-- **Abertura e biolink:** a entrada `/` mostra a animação por 1,5 s na primeira visita da sessão e revela o biolink implementado em React. Não há encaminhamento automático externo. “Conheça nosso site” abre `/inicio`, Projetos abre `/projetos`, Planos abre `/planos` e Fale conosco abre o WhatsApp. Com movimento reduzido, o biolink aparece diretamente. Edite `src/pages/Biolink.tsx` e `src/styles/biolink.css`; imagens locais em `public/img/biolink/`.
+- **Abertura e biolink:** a entrada `/` mostra a animação por 2,6 s (1,2 s de apresentação e 1,4 s de subida suave) na primeira visita da sessão e revela o biolink implementado em React. Não há encaminhamento automático externo. “Conheça nosso site” abre `/inicio`, Projetos abre `/projetos`, Planos abre `/planos` e Fale conosco abre o WhatsApp. Com movimento reduzido, o biolink aparece diretamente. Edite `src/pages/Biolink.tsx` e `src/styles/biolink.css`; imagens locais em `public/img/biolink/`.
 - **Entradas suaves:** blocos sobem de leve ao aparecer. Sem JavaScript ou com movimento reduzido, tudo aparece direto.
 - **Formulário de contato:** nome e nome do negócio são obrigatórios. Erros aparecem junto do campo e o foco vai para o primeiro inválido. Ao enviar, o site **prepara** a mensagem e abre o WhatsApp em outra aba; a tela diz que a mensagem ainda não foi enviada. Nada passa por servidor.
 - **Planos → contato:** "Quero este plano" abre `/contato?plano=...` com a opção marcada; "Para agências" abre com "Parceria".
