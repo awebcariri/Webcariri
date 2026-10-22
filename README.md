@@ -107,7 +107,7 @@ Não há variáveis de ambiente: nenhuma integração precisa de chave hoje, por
 ## Comportamentos
 
 - **Menu do celular:** abre em tela cheia, mantém o foco dentro, fecha com Esc (o foco volta ao botão) e ao trocar de página.
-- **Abertura:** na primeira visita da sessão, uma tela preta revela o logotipo da esquerda para a direita, o ponto entra por último, uma linha fina marca o carregamento e a tela sobe revelando o site (cerca de 2,4 s, rolagem travada só durante esse tempo). Não aparece com "reduzir movimento". Edite `src/components/Abertura.tsx` e o bloco "abertura" em `src/styles/layout.css`.
+- **Abertura:** aparece a cada carregamento do site (abrir, recarregar ou chegar por um link), não ao navegar pelo menu. Tela preta, logotipo revelado da esquerda para a direita, ponto tomate por último, linha de carregamento e a tela subindo (cerca de 2,4 s, rolagem travada só durante esse tempo). Com "reduzir movimento" no aparelho, mostra o logotipo parado e esmaece (cerca de 1,2 s). Edite `src/components/Abertura.tsx` e o bloco "abertura" em `src/styles/layout.css`.
 - **Entradas suaves:** blocos sobem de leve ao aparecer. Sem JavaScript ou com movimento reduzido, tudo aparece direto.
 - **Formulário de contato:** nome e nome do negócio são obrigatórios. Erros aparecem junto do campo e o foco vai para o primeiro inválido. Ao enviar, o site **prepara** a mensagem e abre o WhatsApp em outra aba; a tela diz que a mensagem ainda não foi enviada. Nada passa por servidor.
 - **Planos → contato:** "Quero este plano" abre `/contato?plano=...` com a opção marcada; "Para agências" abre com "Parceria".

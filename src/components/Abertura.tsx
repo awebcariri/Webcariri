@@ -2,44 +2,41 @@ import { useCallback, useEffect, useState } from 'react';
 import { Marca } from './Vitrine';
 
 /**
- * Abertura da primeira visita (cerca de 2,4 s): tela preta, o logotipo é revelado da esquerda
- * para a direita, o ponto entra por último, uma linha fina marca o carregamento e a tela sobe
- * revelando o site. Não aparece com "reduzir movimento" nem nas visitas seguintes da sessão.
+ * Abertura a cada carregamento do site (abrir, recarregar ou chegar por um link).
+ * Não reaparece ao navegar entre páginas pelo menu, porque o componente monta uma vez só.
+ * - Normal (cerca de 2,4 s): tela preta, logotipo revelado da esquerda para a direita, ponto
+ *   tomate entrando por último, linha de carregamento e a tela subindo para revelar o site.
+ * - Com "reduzir movimento" (cerca de 1,2 s): logotipo parado, a tela só esmaece.
  */
 export function Abertura() {
-  const [mostrar, setMostrar] = useState(false);
+  const [modo, setModo] = useState<'normal' | 'simples' | null>(null);
 
   const concluir = useCallback(() => {
-    setMostrar(false);
+    setModo(null);
     document.documentElement.classList.remove('abrindo');
   }, []);
 
   useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    try {
-      if (sessionStorage.getItem('wc-abertura') === '1') return;
-      sessionStorage.setItem('wc-abertura', '1');
-    } catch {
-      // Navegação privada: mostra a abertura normalmente.
-    }
+    const reduzir = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     document.documentElement.classList.add('abrindo');
-    setMostrar(true);
+    setModo(reduzir ? 'simples' : 'normal');
     // Reserva caso o navegador não dispare animationend.
-    const t = window.setTimeout(concluir, 3500);
+    const t = window.setTimeout(concluir, reduzir ? 1800 : 3500);
     return () => {
       window.clearTimeout(t);
       document.documentElement.classList.remove('abrindo');
     };
   }, [concluir]);
 
-  if (!mostrar) return null;
+  if (!modo) return null;
 
   return (
     <div
-      className="abertura"
+      className={`abertura abertura--${modo}`}
       aria-hidden="true"
       onAnimationEnd={(e) => {
-        if (e.target === e.currentTarget && e.animationName === 'abertura-sobe') concluir();
+        if (e.target === e.currentTarget && (e.animationName === 'abertura-sobe' || e.animationName === 'abertura-esmaece'))
+          concluir();
       }}
     >
       <div className="abertura__marca">

@@ -389,3 +389,28 @@ html.abrindo {
   }
 }
 
+
+/* versão parada da abertura (preferência "reduzir movimento"): logotipo fixo e esmaecimento.
+   Mais específica que a regra global que zera as animações com movimento reduzido. */
+.abertura.abertura--simples {
+  animation: abertura-esmaece 0.4s ease 0.8s forwards !important;
+}
+.abertura.abertura--simples .abertura__marca {
+  clip-path: none;
+  animation: none !important;
+}
+.abertura.abertura--simples .marca__ponto {
+  transform: none;
+  animation: none !important;
+}
+.abertura.abertura--simples .abertura__base {
+  animation: none !important;
+}
+.abertura.abertura--simples .abertura__linha::after {
+  animation: none !important;
+}
+@keyframes abertura-esmaece {
+  to {
+    opacity: 0;
+  }
+}
