@@ -11,10 +11,7 @@ import Processo from './pages/Processo';
 import Planos from './pages/Planos';
 import Parceiros from './pages/Parceiros';
 import Contato from './pages/Contato';
-import CaseCaldas from './pages/CaseCaldas';
-import CaseCriaker from './pages/CaseCriaker';
-import CaseLunar from './pages/CaseLunar';
-import CaseEfraim from './pages/CaseEfraim';
+import CasePagina from './pages/CasePagina';
 import NaoEncontrada from './pages/NaoEncontrada';
 
 export default function App() {
@@ -22,17 +19,23 @@ export default function App() {
   useRevelar();
   const { pathname } = useLocation();
 
-  if (pathname === '/') return <><Abertura /><Biolink /></>;
+  // A raiz é o biolink (link da bio do Instagram); o site começa em /inicio.
+  if (pathname === '/')
+    return (
+      <>
+        <Abertura />
+        <Biolink />
+      </>
+    );
 
   return (
     <>
       <a href="#conteudo" className="pular-conteudo">
         Pular para o conteúdo
       </a>
-
       <Cabecalho />
       <main id="conteudo" tabIndex={-1}>
-        {/* A chave nova a cada rota faz a animação de entrada do topo rodar de novo */}
+        {/* A chave nova a cada rota faz a entrada do topo rodar de novo */}
         <div className="pagina" key={pathname}>
           <Routes>
             <Route path="/inicio" element={<Inicio />} />
@@ -41,10 +44,10 @@ export default function App() {
             <Route path="/planos" element={<Planos />} />
             <Route path="/parceiros" element={<Parceiros />} />
             <Route path="/contato" element={<Contato />} />
-            <Route path="/caldas" element={<CaseCaldas />} />
-            <Route path="/criaker" element={<CaseCriaker />} />
-            <Route path="/lunar" element={<CaseLunar />} />
-            <Route path="/efraim" element={<CaseEfraim />} />
+            <Route path="/caldas" element={<CasePagina id="caldas" />} />
+            <Route path="/criaker" element={<CasePagina id="criaker" />} />
+            <Route path="/lunar" element={<CasePagina id="lunar" />} />
+            <Route path="/efraim" element={<CasePagina id="efraim" />} />
             <Route path="*" element={<NaoEncontrada />} />
           </Routes>
         </div>

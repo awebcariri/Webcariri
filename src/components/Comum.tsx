@@ -1,33 +1,38 @@
 import { useId, useState, type CSSProperties, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-import type { Pergunta } from '../content/conteudo';
+import type { Case, Pergunta } from '../content/conteudo';
+import { MENSAGENS, linkWhatsApp } from '../config/site';
+import { Icone, Seta } from './Icone';
 
-/** Captura de tela de um site, com moldura e (opcional) barra de navegador. */
+/** Captura de tela de um site. `recorte` fixa a proporção (ex.: "4 / 3"), cortando de cima para baixo. */
 export function Tela({
   src,
   srcPequena,
   alt,
   largura,
   altura,
-  barra = false,
+  recorte,
   prioridade = false,
+  revelar = true,
   className = '',
   sizes = '(max-width: 767px) 100vw, 60vw',
-  style,
 }: {
   src: string;
   srcPequena?: string;
   alt: string;
   largura: number;
   altura: number;
-  barra?: boolean;
+  recorte?: string;
   prioridade?: boolean;
+  revelar?: boolean;
   className?: string;
   sizes?: string;
-  style?: CSSProperties;
 }) {
   return (
-    <figure className={`tela ${barra ? 'tela--barra' : ''} ${className}`} style={style}>
+    <figure
+      className={`tela ${revelar && !prioridade ? 'revelar-img' : ''} ${className}`}
+      style={recorte ? ({ '--recorte': recorte } as CSSProperties) : undefined}
+    >
       <img
         src={src}
         srcSet={srcPequena ? `${srcPequena} 700w, ${src} ${largura}w` : undefined}
@@ -41,75 +46,6 @@ export function Tela({
       />
     </figure>
   );
-}
-
-/** Balão de texto no estilo dos stickers das pranchas. É texto real, não imagem. */
-export function Balao({
-  children,
-  variante = 'amarelo',
-  forma = 'nuvem',
-  fala = false,
-  className = '',
-  style,
-}: {
-  children: ReactNode;
-  variante?: 'amarelo' | 'branco' | 'serif';
-  forma?: 'nuvem' | 'quadrado';
-  fala?: boolean;
-  className?: string;
-  style?: CSSProperties;
-}) {
-  const classes = [
-    'balao',
-    variante === 'branco' && 'balao--branco',
-    variante === 'serif' && 'balao--branco balao--serif',
-    forma === 'quadrado' && 'balao--quadrado',
-    fala && 'balao--fala',
-    className,
-  ]
-    .filter(Boolean)
-    .join(' ');
-  return (
-    <p className={classes} style={style}>
-      {children}
-    </p>
-  );
-}
-
-export function Cari({
-  pose,
-  alt = '',
-  className = '',
-  largura = 600,
-  carregar = 'lazy',
-}: {
-  pose: 'avatar' | 'curioso' | 'saudando' | 'no-notebook';
-  alt?: string;
-  className?: string;
-  largura?: number;
-  carregar?: 'lazy' | 'eager';
-}) {
-  const dims = pose === 'no-notebook' ? [1200, 800] : [900, 900];
-  return (
-    <img
-      src={`/img/cari/cari-${pose}.webp`}
-      alt={alt}
-      width={dims[0]}
-      height={dims[1]}
-      className={`cari ${className}`}
-      loading={carregar}
-      decoding="async"
-      style={{ maxWidth: largura }}
-    />
-  );
-}
-
-/** Stickers redesenhados em vetor porque o arquivo do kit é pequeno demais e pixela ao ampliar. */
-const STICKERS_VETOR = new Set(['sol-e-serras-do-cariri']);
-
-export function Sticker({ nome, alt = '', className = '' }: { nome: string; alt?: string; className?: string }) {
-  const ext = STICKERS_VETOR.has(nome) ? 'svg' : 'webp';
-  return <img src={`/img/stickers/${nome}.${ext}`} alt={alt} className={`sticker ${className}`} loading="lazy" decoding="async" />;
 }
 
 export function Trilha({ itens }: { itens: { label: string; to?: string }[] }) {
@@ -127,10 +63,94 @@ export function Trilha({ itens }: { itens: { label: string; to?: string }[] }) {
   );
 }
 
+/** Abertura das páginas internas: rótulo, título, texto de apoio e ações. */
+export function TopoPagina({
+  rotulo,
+  titulo,
+  lead,
+  trilha,
+  children,
+}: {
+  rotulo: string;
+  titulo: ReactNode;
+  lead?: ReactNode;
+  trilha?: { label: string; to?: string }[];
+  children?: ReactNode;
+}) {
+  return (
+    <section className="topo">
+      <div className="container topo__grade">
+        <div className="topo__cabeca">
+          {trilha ? <Trilha itens={trilha} /> : <p className="rotulo">{rotulo}</p>}
+          <h1 className="titulo titulo--1">{titulo}</h1>
+        </div>
+        {(lead || children) && (
+          <div className="topo__apoio">
+            {lead && <p className="lead">{lead}</p>}
+            {children && <div className="topo__acoes">{children}</div>}
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
+/** Cabeçalho de seção: rótulo e título à esquerda, texto ou link à direita. */
+export function CabecaSecao({
+  rotulo,
+  titulo,
+  id,
+  children,
+}: {
+  rotulo: string;
+  titulo: ReactNode;
+  id?: string;
+  children?: ReactNode;
+}) {
+  return (
+    <div className="cabeca-secao">
+      <div>
+        <p className="rotulo">{rotulo}</p>
+        <h2 className="titulo titulo--2" id={id}>
+          {titulo}
+        </h2>
+      </div>
+      {children && <div className="cabeca-secao__apoio">{children}</div>}
+    </div>
+  );
+}
+
+/** Card de projeto (Início e Projetos). */
+export function CartaoProjeto({ caso, numero, recorte = '4 / 3' }: { caso: Case; numero: number; recorte?: string }) {
+  return (
+    <article className="cartao-projeto revelar">
+      <Link to={`/${caso.id}`} className="cartao-projeto__link">
+        <Tela
+          src={caso.imagem}
+          srcPequena={caso.imagemPequena}
+          alt=""
+          largura={caso.imagemLargura}
+          altura={caso.imagemAltura}
+          recorte={recorte}
+          sizes="(max-width: 767px) 100vw, 50vw"
+        />
+        <div className="cartao-projeto__info">
+          <span className="numero">{String(numero).padStart(2, '0')}</span>
+          <h3 className="titulo titulo--3">{caso.nome}</h3>
+          <Icone nome="seta-diag" tamanho={22} traco={1.6} className="cartao-projeto__seta" />
+        </div>
+        <p className="cartao-projeto__meta">
+          {caso.segmento} · {caso.cidade} · {caso.tipo}
+        </p>
+      </Link>
+    </article>
+  );
+}
+
 /** Lista de perguntas com botões expansíveis. */
 export function Perguntas({ itens, className = '' }: { itens: Pergunta[]; className?: string }) {
   return (
-    <div className={className}>
+    <div className={`perguntas ${className}`}>
       {itens.map((item) => (
         <Acordeao key={item.p} titulo={item.p}>
           <p>{item.r}</p>
@@ -143,13 +163,11 @@ export function Perguntas({ itens, className = '' }: { itens: Pergunta[]; classN
 export function Acordeao({
   titulo,
   children,
-  icone,
   className = '',
   inicial = false,
 }: {
   titulo: ReactNode;
   children: ReactNode;
-  icone?: ReactNode;
   className?: string;
   inicial?: boolean;
 }) {
@@ -166,8 +184,7 @@ export function Acordeao({
           id={`${id}-botao`}
           onClick={() => setAberto((v) => !v)}
         >
-          {icone}
-          <span className="acordeao__titulo">{titulo}</span>
+          <span>{titulo}</span>
           <span className="acordeao__icone" aria-hidden="true" />
         </button>
       </h3>
@@ -177,10 +194,48 @@ export function Acordeao({
         role="region"
         aria-labelledby={`${id}-botao`}
         data-aberto={aberto}
-        aria-hidden={!aberto}
       >
         <div>{children}</div>
       </div>
     </div>
+  );
+}
+
+/** Chamada final, igual em todas as páginas. */
+export function ChamadaFinal({
+  titulo = (
+    <>
+      Vamos conversar sobre <em>o seu projeto?</em>
+    </>
+  ),
+  texto = 'Conte como o seu negócio funciona. Você recebe uma proposta e vê a primeira tela antes de fechar.',
+  linkProposta = '/contato',
+  mensagemZap = MENSAGENS.geral,
+}: {
+  titulo?: ReactNode;
+  texto?: string;
+  linkProposta?: string;
+  mensagemZap?: string;
+}) {
+  return (
+    <section className="secao secao--amarela chamada" aria-labelledby="chamada-titulo">
+      <div className="container chamada__grade">
+        <h2 className="titulo titulo--2 revelar" id="chamada-titulo">
+          {titulo}
+        </h2>
+        <div className="chamada__apoio revelar" style={{ ['--atraso' as string]: '0.1s' }}>
+          <p>{texto}</p>
+          <div className="chamada__acoes">
+            <Link to={linkProposta} className="btn">
+              Solicitar proposta <Seta />
+            </Link>
+            <a href={linkWhatsApp(mensagemZap)} target="_blank" rel="noopener noreferrer" className="btn btn--contorno">
+              <Icone nome="whatsapp" tamanho={18} /> WhatsApp
+              <span className="sr-only"> (abre em nova aba)</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }

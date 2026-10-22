@@ -55,7 +55,7 @@ export function useRolagemDeRota() {
 export function useRevelar() {
   const { pathname } = useLocation();
   useEffect(() => {
-    const elementos = Array.from(document.querySelectorAll<HTMLElement>('.revelar:not(.visivel)'));
+    const elementos = Array.from(document.querySelectorAll<HTMLElement>('.revelar:not(.visivel), .revelar-img:not(.visivel), .vitrine__painel:not(.visivel)'));
     if (!('IntersectionObserver' in window)) {
       elementos.forEach((el) => el.classList.add('visivel'));
       return;

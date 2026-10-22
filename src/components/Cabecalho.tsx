@@ -1,9 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { NAV, SITE, linkWhatsApp, MENSAGENS } from '../config/site';
+import { MENSAGENS, NAV, SITE, linkWhatsApp } from '../config/site';
 import { usePrenderFoco } from '../lib/hooks';
 import { Icone, Seta } from './Icone';
+import { Marca } from './Vitrine';
 
+/** Logotipo em imagem (PNG do kit), usado onde o tamanho é pequeno e fixo. */
 export function Logo({ claro = false, className = '' }: { claro?: boolean; className?: string }) {
   return (
     <img
@@ -16,6 +18,10 @@ export function Logo({ claro = false, className = '' }: { claro?: boolean; class
     />
   );
 }
+
+const ROTAS_PROJETOS = ['/projetos', '/caldas', '/criaker', '/lunar', '/efraim'];
+const ESQUERDA = NAV.slice(0, 3); // Projetos, Processo, Planos
+const DIREITA = NAV.slice(3); // Para agências, Contato
 
 export function Cabecalho() {
   const [aberto, setAberto] = useState(false);
@@ -31,7 +37,6 @@ export function Cabecalho() {
 
   usePrenderFoco(aberto, painel, fechar);
 
-  // Fecha o menu ao trocar de página.
   useEffect(() => setAberto(false), [pathname]);
 
   useEffect(() => {
@@ -46,37 +51,38 @@ export function Cabecalho() {
     return () => window.removeEventListener('scroll', aoRolar);
   }, []);
 
-  // Cases contam como "Projetos" no menu.
-  const emProjetos = ['/projetos', '/caldas', '/criaker', '/lunar', '/efraim'].includes(pathname);
+  const emProjetos = ROTAS_PROJETOS.includes(pathname);
+
+  const item = (it: (typeof NAV)[number]) => {
+    const ativo = pathname === it.to || (it.to === '/projetos' && emProjetos);
+    return (
+      <li key={it.to}>
+        <NavLink
+          to={it.to}
+          className={`cabecalho__link ${ativo ? 'ativo' : ''}`}
+          aria-current={pathname === it.to ? 'page' : ativo ? 'true' : undefined}
+        >
+          {it.label}
+        </NavLink>
+      </li>
+    );
+  };
 
   return (
     <header className={`cabecalho ${rolou ? 'cabecalho--rolou' : ''} ${aberto ? 'cabecalho--aberto' : ''}`}>
-      <div className="container cabecalho__barra">
+      <div className="cabecalho__barra">
+        <nav className="cabecalho__nav cabecalho__nav--esq" aria-label="Principal">
+          <ul role="list">{ESQUERDA.map(item)}</ul>
+        </nav>
+
         <Link to="/inicio" className="cabecalho__logo" aria-label="WebCariri, página inicial">
-          <Logo />
+          <Marca />
         </Link>
 
-        <nav className="cabecalho__nav" aria-label="Principal">
-          <ul role="list">
-            {NAV.map((item) => (
-              <li key={item.to}>
-                <NavLink
-                  to={item.to}
-                  className={({ isActive }) =>
-                    `cabecalho__link ${isActive || (item.to === '/projetos' && emProjetos) ? 'ativo' : ''}`
-                  }
-                  aria-current={
-                    pathname === item.to ? 'page' : item.to === '/projetos' && emProjetos ? 'true' : undefined
-                  }
-                >
-                  {item.label}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
-          <span className="cabecalho__divisor" aria-hidden="true" />
+        <nav className="cabecalho__nav cabecalho__nav--dir" aria-label="Secundária">
+          <ul role="list">{DIREITA.map(item)}</ul>
           <Link to="/contato" className="btn btn--pequeno">
-            Pedir prévia <Seta tamanho={18} />
+            Solicitar proposta
           </Link>
         </nav>
 
@@ -89,52 +95,39 @@ export function Cabecalho() {
           onClick={() => setAberto((v) => !v)}
         >
           <span>{aberto ? 'Fechar' : 'Menu'}</span>
-          <Icone nome={aberto ? 'fechar' : 'menu'} tamanho={26} traco={2} />
+          <Icone nome={aberto ? 'fechar' : 'menu'} tamanho={22} traco={1.8} />
         </button>
       </div>
 
-      <div
-        id="menu-mobile"
-        ref={painel}
-        className="menu-mobile"
-        hidden={!aberto}
-        role="dialog"
-        aria-modal="true"
-        aria-label="Menu"
-      >
-        <nav className="container" aria-label="Menu do celular">
+      <div id="menu-mobile" ref={painel} className="menu-mobile" hidden={!aberto} role="dialog" aria-modal="true" aria-label="Menu">
+        <nav className="menu-mobile__corpo" aria-label="Menu do celular">
           <ul role="list" className="menu-mobile__lista">
             <li>
-              <NavLink to="/inicio" end className="menu-mobile__link">
+              <NavLink to="/inicio" className="menu-mobile__link">
                 Início
               </NavLink>
             </li>
-            {NAV.map((item) => (
-              <li key={item.to}>
-                <NavLink to={item.to} className="menu-mobile__link">
-                  {item.label}
+            {NAV.map((it) => (
+              <li key={it.to}>
+                <NavLink to={it.to} className="menu-mobile__link">
+                  {it.label}
                 </NavLink>
               </li>
             ))}
           </ul>
-          <Link to="/contato" className="btn btn--grande btn--bloco">
-            Pedir minha prévia <Seta />
+          <Link to="/contato" className="btn btn--bloco btn--tomate">
+            Solicitar proposta <Seta />
           </Link>
           <ul role="list" className="menu-mobile__contatos">
             <li>
               <a href={linkWhatsApp(MENSAGENS.geral)} target="_blank" rel="noopener noreferrer">
-                <Icone nome="whatsapp" /> {SITE.whatsappExibicao}
+                WhatsApp {SITE.whatsappExibicao}
               </a>
             </li>
             <li>
               <a href={SITE.instagramUrl} target="_blank" rel="noopener noreferrer">
-                <Icone nome="instagram" /> @{SITE.instagramUsuario}
+                Instagram @{SITE.instagramUsuario}
               </a>
-            </li>
-            <li>
-              <span>
-                <Icone nome="pin" /> {SITE.cidade} • {SITE.uf}
-              </span>
             </li>
           </ul>
         </nav>
