@@ -755,3 +755,22 @@ html.abrindo .pagina > .abre * {
     padding: 40px 0 48px;
   }
 }
+
+/* celular e tablet: painel da vitrine com a altura do conteúdo, não da tela */
+@media (max-width: 1023px) {
+  .vitrine__painel {
+    min-height: 0;
+    padding: 48px var(--margem);
+  }
+  .vitrine__painel:first-child {
+    padding-top: 56px;
+  }
+  .vitrine__painel:last-child {
+    padding-bottom: 56px;
+  }
+}
+@media (max-width: 767px) {
+  .vitrine__painel {
+    padding-block: 32px;
+  }
+}
