@@ -1,33 +1,36 @@
 import { useCallback, useEffect, useState } from 'react';
+import { Marca } from './Vitrine';
 
-/** Abertura na primeira visita, respeitando a preferência de reduzir movimento. */
+/**
+ * Abertura da primeira visita (cerca de 2,4 s): tela preta, o logotipo é revelado da esquerda
+ * para a direita, o ponto entra por último, uma linha fina marca o carregamento e a tela sobe
+ * revelando o site. Não aparece com "reduzir movimento" nem nas visitas seguintes da sessão.
+ */
 export function Abertura() {
   const [mostrar, setMostrar] = useState(false);
 
   const concluir = useCallback(() => {
     setMostrar(false);
     document.documentElement.classList.remove('abrindo');
-    try { sessionStorage.setItem('wc-abertura', '1'); } catch { /* modo privado */ }
   }, []);
 
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     try {
       if (sessionStorage.getItem('wc-abertura') === '1') return;
+      sessionStorage.setItem('wc-abertura', '1');
     } catch {
-      // Navegação privada: segue normalmente.
+      // Navegação privada: mostra a abertura normalmente.
     }
-
     document.documentElement.classList.add('abrindo');
     setMostrar(true);
     // Reserva caso o navegador não dispare animationend.
-    const t = window.setTimeout(concluir, 4000);
-
+    const t = window.setTimeout(concluir, 3500);
     return () => {
       window.clearTimeout(t);
       document.documentElement.classList.remove('abrindo');
     };
-  }, []);
+  }, [concluir]);
 
   if (!mostrar) return null;
 
@@ -35,14 +38,17 @@ export function Abertura() {
     <div
       className="abertura"
       aria-hidden="true"
-      onAnimationEnd={(event) => {
-        if (event.target === event.currentTarget && event.animationName === 'abertura-sai') concluir();
+      onAnimationEnd={(e) => {
+        if (e.target === e.currentTarget && e.animationName === 'abertura-sobe') concluir();
       }}
     >
-      <div className="abertura__conteudo">
-        <img src="/img/cari/cari-avatar-160.webp" alt="" width={96} height={96} className="abertura__cari" />
-        <img src="/img/marca/webcariri-vinho.png" alt="" width={950} height={190} className="abertura__logo" />
-        <span className="abertura__barra" />
+      <div className="abertura__marca">
+        <Marca />
+      </div>
+      <div className="abertura__base">
+        <span>Estúdio de sites</span>
+        <span className="abertura__linha" />
+        <span>Juazeiro do Norte · CE</span>
       </div>
     </div>
   );

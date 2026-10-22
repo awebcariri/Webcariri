@@ -47,7 +47,7 @@ export function Rodape() {
         <nav aria-label="Rodapé">
           <ul role="list" className="rodape__nav">
             <li>
-              <Link to="/inicio">Início</Link>
+              <Link to="/">Início</Link>
             </li>
             {NAV.map((it) => (
               <li key={it.to}>
@@ -58,7 +58,7 @@ export function Rodape() {
         </nav>
       </div>
 
-      <Link to="/inicio" className="rodape__marca" aria-label="WebCariri, página inicial">
+      <Link to="/" className="rodape__marca" aria-label="WebCariri, página inicial">
         <Marca />
       </Link>
     </footer>

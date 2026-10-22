@@ -29,7 +29,7 @@ export default function CasePagina({ id }: { id: CaseId }) {
       <section className="topo">
         <div className="container topo__grade">
           <div className="topo__cabeca">
-            <Trilha itens={[{ label: 'Início', to: '/inicio' }, { label: 'Projetos', to: '/projetos' }, { label: caso.nomeCurto }]} />
+            <Trilha itens={[{ label: 'Início', to: '/' }, { label: 'Projetos', to: '/projetos' }, { label: caso.nomeCurto }]} />
             <h1 className="titulo titulo--1">{caso.nome}</h1>
           </div>
           <div className="topo__apoio">

@@ -1,12 +1,11 @@
 # WebCariri — site (React + TypeScript + Vite)
 
 Implementação do redesign descrito no PDF **WebCariri-Redesign-Desktop-Mobile** (15/10/2026), com a identidade do kit **WebCariri + Cari**.
-Biolink de entrada, dez rotas do site completo e uma página 404, versões desktop e mobile, pronto para a Vercel.
+Dez rotas e uma página 404, versões desktop e mobile, pronto para a Vercel.
 
 | Rota | Página |
 | --- | --- |
-| `/` | Biolink de entrada |
-| `/inicio` | Site completo |
+| `/` | Início (o antigo `/inicio` redireciona para cá) |
 | `/projetos` | Projetos |
 | `/como-funciona` | Processo |
 | `/planos` | Planos |
@@ -37,7 +36,6 @@ Outros comandos:
 - `npm run typecheck` — confere os tipos do TypeScript.
 - `npm run build` — verifica os tipos, gera os bundles de navegador e pré-renderização e cria um HTML completo por rota com conteúdo, título, descrição e prévia próprios (`scripts/prerender.mjs`). O navegador hidrata esse HTML para ativar as interações.
 - `npm run verify:seo` — verifica as 12 páginas geradas, metadados por rota, dados estruturados, redirecionamentos configurados e sitemap.
-- `node scripts/verify-biolink.mjs` — com o preview em execução, verifica abertura, navegação pelos botões, imagens locais, movimento reduzido e acesso sem JavaScript em sete larguras de tela.
 - `npm run preview` — abre a versão de produção gerada em `dist/`.
 - `node scripts/verify-browser.mjs` — com o preview em execução, testa as dez rotas em 390 e 1440px, hidratação, Cari, menu, abertura e conteúdo sem JavaScript. Usa o Chrome instalado; aceita `CHROME_PATH` e `PREVIEW_URL`. Capturas ficam em `.prerender-ssr/screenshots/` (ignorada pelo Git).
 
@@ -109,7 +107,7 @@ Não há variáveis de ambiente: nenhuma integração precisa de chave hoje, por
 ## Comportamentos
 
 - **Menu do celular:** abre em tela cheia, mantém o foco dentro, fecha com Esc (o foco volta ao botão) e ao trocar de página.
-- **Abertura e biolink:** a entrada `/` mostra a animação por 2,6 s (1,2 s de apresentação e 1,4 s de subida suave) na primeira visita da sessão e revela o biolink implementado em React. Não há encaminhamento automático externo. “Conheça nosso site” abre `/inicio`, Projetos abre `/projetos`, Planos abre `/planos` e Fale conosco abre o WhatsApp. Com movimento reduzido, o biolink aparece diretamente. Edite `src/pages/Biolink.tsx` e `src/styles/biolink.css`; imagens locais em `public/img/biolink/`.
+- **Abertura:** na primeira visita da sessão, uma tela preta revela o logotipo da esquerda para a direita, o ponto entra por último, uma linha fina marca o carregamento e a tela sobe revelando o site (cerca de 2,4 s, rolagem travada só durante esse tempo). Não aparece com "reduzir movimento". Edite `src/components/Abertura.tsx` e o bloco "abertura" em `src/styles/layout.css`.
 - **Entradas suaves:** blocos sobem de leve ao aparecer. Sem JavaScript ou com movimento reduzido, tudo aparece direto.
 - **Formulário de contato:** nome e nome do negócio são obrigatórios. Erros aparecem junto do campo e o foco vai para o primeiro inválido. Ao enviar, o site **prepara** a mensagem e abre o WhatsApp em outra aba; a tela diz que a mensagem ainda não foi enviada. Nada passa por servidor.
 - **Planos → contato:** "Quero este plano" abre `/contato?plano=...` com a opção marcada; "Para agências" abre com "Parceria".

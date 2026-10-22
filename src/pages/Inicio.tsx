@@ -6,7 +6,7 @@ import { CASES_COM_PAGINA, ETAPAS_INICIO, FAQ_INICIO, PLANOS } from '../content/
 import { useSeo } from '../lib/hooks';
 
 export default function Inicio() {
-  useSeo('/inicio');
+  useSeo('/');
   const projetos = CASES_COM_PAGINA();
   const cartazes = projetos.slice(0, 3);
 

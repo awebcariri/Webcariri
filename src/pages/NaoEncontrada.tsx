@@ -15,7 +15,7 @@ export default function NaoEncontrada() {
       }
       lead="O endereço pode ter mudado ou não existe mais."
     >
-      <Link to="/inicio" className="btn">
+      <Link to="/" className="btn">
         Ir para o início <Seta />
       </Link>
       <Link to="/projetos" className="btn btn--contorno">

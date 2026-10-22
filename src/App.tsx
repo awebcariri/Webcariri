@@ -4,7 +4,6 @@ import { Cabecalho } from './components/Cabecalho';
 import { CariAssistente } from './components/CariAssistente';
 import { Rodape } from './components/Rodape';
 import { useRevelar, useRolagemDeRota } from './lib/hooks';
-import Biolink from './pages/Biolink';
 import Inicio from './pages/Inicio';
 import Projetos from './pages/Projetos';
 import Processo from './pages/Processo';
@@ -19,26 +18,18 @@ export default function App() {
   useRevelar();
   const { pathname } = useLocation();
 
-  // A raiz é o biolink (link da bio do Instagram); o site começa em /inicio.
-  if (pathname === '/')
-    return (
-      <>
-        <Abertura />
-        <Biolink />
-      </>
-    );
-
   return (
     <>
       <a href="#conteudo" className="pular-conteudo">
         Pular para o conteúdo
       </a>
+      <Abertura />
       <Cabecalho />
       <main id="conteudo" tabIndex={-1}>
         {/* A chave nova a cada rota faz a entrada do topo rodar de novo */}
         <div className="pagina" key={pathname}>
           <Routes>
-            <Route path="/inicio" element={<Inicio />} />
+            <Route path="/" element={<Inicio />} />
             <Route path="/projetos" element={<Projetos />} />
             <Route path="/como-funciona" element={<Processo />} />
             <Route path="/planos" element={<Planos />} />

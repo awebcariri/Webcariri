@@ -75,7 +75,7 @@ export function Cabecalho() {
           <ul role="list">{ESQUERDA.map(item)}</ul>
         </nav>
 
-        <Link to="/inicio" className="cabecalho__logo" aria-label="WebCariri, página inicial">
+        <Link to="/" className="cabecalho__logo" aria-label="WebCariri, página inicial">
           <Marca />
         </Link>
 
@@ -103,7 +103,7 @@ export function Cabecalho() {
         <nav className="menu-mobile__corpo" aria-label="Menu do celular">
           <ul role="list" className="menu-mobile__lista">
             <li>
-              <NavLink to="/inicio" className="menu-mobile__link">
+              <NavLink to="/" className="menu-mobile__link">
                 Início
               </NavLink>
             </li>

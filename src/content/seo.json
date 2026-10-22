@@ -1,50 +1,46 @@
 {
-  "404": {
-    "title": "Página não encontrada | WebCariri",
-    "description": "Essa página não existe. Volte para o início ou veja os projetos da WebCariri."
-  },
-  "/": {
-    "title": "WebCariri",
-    "description": "Conheça o site oficial da WebCariri, nossos projetos e planos. Fale conosco."
-  },
-  "/projetos": {
-    "title": "Projetos: sites de clientes e estudos autorais | WebCariri",
-    "description": "Balneário do Caldas, Criaker, Lunar Doceria e Efraim Vitaliano: sites reais feitos pela WebCariri, além de estudos autorais para diferentes segmentos."
-  },
-  "/como-funciona": {
-    "title": "Como funciona: do papo ao site no ar | WebCariri",
-    "description": "Conversa, prévia, criação e publicação. Você vê a primeira tela antes de fechar; prazo médio de cerca de 12 dias, conforme escopo e materiais."
-  },
-  "/planos": {
-    "title": "Criação de Sites e Landing Pages | Planos WebCariri",
-    "description": "Conheça os planos de criação de sites: Landing Express, Site Profissional e Site Premium. Projetos para negócios do Cariri e de todo o Brasil."
-  },
-  "/parceiros": {
-    "title": "Para agências: design e código para seus clientes | WebCariri",
-    "description": "Sua agência cuida da estratégia; a WebCariri entra com o design e o desenvolvimento dos sites. Responsabilidades combinadas por projeto."
-  },
-  "/contato": {
-    "title": "Contato: bora dar vida à sua ideia? | WebCariri",
-    "description": "Conte do seu negócio e prepare uma mensagem para continuar a conversa no WhatsApp. Atendimento online para todo o Brasil."
-  },
-  "/caldas": {
-    "title": "Case Balneário do Caldas | WebCariri",
-    "description": "Um balneário com 50 anos de história em Barbalha ganhou um lugar para o visitante planejar o passeio: horários, ingressos, guia, hospedagem e como chegar."
-  },
-  "/criaker": {
-    "title": "Case Criaker | WebCariri",
-    "description": "Uma agência criativa de Juazeiro do Norte ganhou um site com a mesma personalidade das campanhas que faz."
-  },
-  "/lunar": {
-    "title": "Case Lunar Doceria | WebCariri",
-    "description": "Uma vitrine delicada para a Lunar Doceria: cardápio visual, história da marca e encomenda pelo WhatsApp."
-  },
-  "/efraim": {
-    "title": "Case Efraim Vitaliano | WebCariri",
-    "description": "Site de uma página para o advogado Efraim Vitaliano, de João Pessoa: direito canábico explicado com clareza, quatro caminhos por tipo de caso e regras da OAB."
-  },
-  "/inicio": {
-    "title": "Criação de sites em Juazeiro do Norte | WebCariri",
-    "description": "Criação de sites profissionais e landing pages em Juazeiro do Norte, com atendimento online para todo o Brasil. Conheça os projetos da WebCariri."
-  }
+    "404":  {
+                "title":  "Página não encontrada | WebCariri",
+                "description":  "Essa página não existe. Volte para o início ou veja os projetos da WebCariri."
+            },
+    "/":  {
+              "title":  "Criação de sites em Juazeiro do Norte | WebCariri",
+              "description":  "Criação de sites profissionais e landing pages em Juazeiro do Norte, com atendimento online para todo o Brasil. Conheça os projetos da WebCariri."
+          },
+    "/projetos":  {
+                      "title":  "Projetos: sites de clientes e estudos autorais | WebCariri",
+                      "description":  "Balneário do Caldas, Criaker, Lunar Doceria e Efraim Vitaliano: sites reais feitos pela WebCariri, além de estudos autorais para diferentes segmentos."
+                  },
+    "/como-funciona":  {
+                           "title":  "Como funciona: do papo ao site no ar | WebCariri",
+                           "description":  "Conversa, prévia, criação e publicação. Você vê a primeira tela antes de fechar; prazo médio de cerca de 12 dias, conforme escopo e materiais."
+                       },
+    "/planos":  {
+                    "title":  "Criação de Sites e Landing Pages | Planos WebCariri",
+                    "description":  "Conheça os planos de criação de sites: Landing Express, Site Profissional e Site Premium. Projetos para negócios do Cariri e de todo o Brasil."
+                },
+    "/parceiros":  {
+                       "title":  "Para agências: design e código para seus clientes | WebCariri",
+                       "description":  "Sua agência cuida da estratégia; a WebCariri entra com o design e o desenvolvimento dos sites. Responsabilidades combinadas por projeto."
+                   },
+    "/contato":  {
+                     "title":  "Contato: bora dar vida à sua ideia? | WebCariri",
+                     "description":  "Conte do seu negócio e prepare uma mensagem para continuar a conversa no WhatsApp. Atendimento online para todo o Brasil."
+                 },
+    "/caldas":  {
+                    "title":  "Case Balneário do Caldas | WebCariri",
+                    "description":  "Um balneário com 50 anos de história em Barbalha ganhou um lugar para o visitante planejar o passeio: horários, ingressos, guia, hospedagem e como chegar."
+                },
+    "/criaker":  {
+                     "title":  "Case Criaker | WebCariri",
+                     "description":  "Uma agência criativa de Juazeiro do Norte ganhou um site com a mesma personalidade das campanhas que faz."
+                 },
+    "/lunar":  {
+                   "title":  "Case Lunar Doceria | WebCariri",
+                   "description":  "Uma vitrine delicada para a Lunar Doceria: cardápio visual, história da marca e encomenda pelo WhatsApp."
+               },
+    "/efraim":  {
+                    "title":  "Case Efraim Vitaliano | WebCariri",
+                    "description":  "Site de uma página para o advogado Efraim Vitaliano, de João Pessoa: direito canábico explicado com clareza, quatro caminhos por tipo de caso e regras da OAB."
+                }
 }

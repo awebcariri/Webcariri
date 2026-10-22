@@ -52,6 +52,11 @@
   ],
   "redirects": [
     {
+      "source": "/inicio",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/servicos/:caminho*",
       "destination": "/planos",
       "permanent": true

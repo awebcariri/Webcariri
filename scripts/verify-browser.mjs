@@ -64,7 +64,7 @@ try {
   await reduced.close();
   const noJs = await browser.newContext({ javaScriptEnabled: false });
   const staticPage = await noJs.newPage();
-  for (const route of ['/inicio', '/planos', '/projetos', '/contato', '/criaker']) {
+  for (const route of ['/', '/planos', '/projetos', '/contato', '/criaker']) {
     await staticPage.goto(base + route);
     assert.ok(await staticPage.locator('h1').isVisible());
     assert.ok((await staticPage.locator('main').innerText()).length > 200);
